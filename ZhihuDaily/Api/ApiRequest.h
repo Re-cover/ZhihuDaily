@@ -1,0 +1,24 @@
+//
+//  ApiRequest.h
+//  ZhihuDaily
+//
+//  Created by Recover on 16/2/29.
+//  Copyright © 2016年 Recover. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@class SplashModel;
+
+typedef void(^success)(id);
+typedef void(^failure)(NSError *error);
+
+@interface ApiRequest : NSObject
+
++ (void)splashModelComplete:(success)successBlock failure:(failure)failureBlock;
+
++ (void)latestStoriesModelComplete:(success)successBlock failure:(failure)failureBlock;
+
++ (void)beforeStoriesModelWithParameter:(id)parameter complete:(success)successBlock failure:(failure)failureBlock;
+
+@end
