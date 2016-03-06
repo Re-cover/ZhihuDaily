@@ -19,7 +19,7 @@
 @implementation ImageScrollView
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 200)];
+    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     if (self) {
         @weakify(self);
         [self addSubview:self.imageScrollView];
@@ -31,7 +31,7 @@
         [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(60, 16));
             make.centerX.mas_equalTo(weak_self);
-            make.bottom.mas_equalTo(weak_self).offset(-14);
+            make.bottom.mas_equalTo(weak_self).offset(-20);
         }];
     }
     return self;
@@ -40,10 +40,12 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = scrollView.contentOffset.x;
     self.pageControl.currentPage = (NSInteger)(offset / kScreenWidth + 0.5);
+    //NSLog(@"--%ld", self.pageControl.currentPage);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self removeTimer];
+    NSLog(@"remove timer");
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -51,14 +53,18 @@
     CGFloat x = self.pageControl.currentPage * kScreenWidth;
     [self.imageScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
     [self addTimer];
+    NSLog(@"add timer");
 }
 
 - (UIScrollView *)imageScrollView {
     if (!_imageScrollView) {
         self.imageScrollView = [[UIScrollView alloc] init];
+        //[self.imageScrollView setUserInteractionEnabled:YES];
+        [self.imageScrollView setScrollEnabled:YES];
         [self.imageScrollView setPagingEnabled:YES];
         [self.imageScrollView setBounces:NO];
         [self.imageScrollView setShowsHorizontalScrollIndicator:NO];
+        [self.imageScrollView setDelegate:self];
     }
     return _imageScrollView;
 }
@@ -80,9 +86,8 @@
 }
 
 - (void)scorllToNextImage {
-//    NSLog(@"翻页");
     NSLog(@"%ld", self.pageControl.currentPage);
-    NSInteger page = (self.pageControl.currentPage + 1) % 5;
+    NSInteger page = (self.pageControl.currentPage + 1) % self.pageControl.numberOfPages;
     CGFloat x = page * kScreenWidth;
     [self.imageScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
 }
@@ -100,21 +105,12 @@
         imageView.model = topStoryModels[i];
         [self.topImageViews addObject:imageView];
         [self.imageScrollView addSubview:imageView];
+        imageView.frame = CGRectMake(i * kScreenWidth, 0, kScreenWidth, imageView.bounds.size.height);
     }
     if (self.timer) {
         [self removeTimer];
     }
     [self addTimer];
-    [self setNeedsLayout];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.imageScrollView.contentSize = CGSizeMake(kScreenWidth * self.topImageViews.count, self.frame.size.height);
-    for (NSUInteger i = 0; i < self.topStoryModels.count; i++) {
-        TopImageView *imageVew = self.topImageViews[i];
-        imageVew.frame = CGRectMake(i*kScreenWidth, 0, kScreenWidth, self.frame.size.height);
-    }
 }
 
 @end

@@ -12,11 +12,13 @@
 #import <YYWebImage.h>
 
 #define weakify(object) autoreleasepool{} __weak typeof(object) weak_##object = object;
+#define kScreenWidth         [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight        [UIScreen mainScreen].bounds.size.height
 
 @implementation TopImageView
 
 - (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 200)];
+    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     if (self) {
         @weakify(self);
         [self addSubview:self.topStoryImage];
