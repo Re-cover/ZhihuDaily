@@ -31,7 +31,7 @@
         [self.pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(60, 16));
             make.centerX.mas_equalTo(weak_self);
-            make.bottom.mas_equalTo(weak_self).offset(-20);
+            make.bottom.mas_equalTo(weak_self).offset(-14);
         }];
     }
     return self;
@@ -40,12 +40,12 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = scrollView.contentOffset.x;
     self.pageControl.currentPage = (NSInteger)(offset / kScreenWidth + 0.5);
-    //NSLog(@"--%ld", self.pageControl.currentPage);
+    //NSLog(@"currentPage %ld", self.pageControl.currentPage);
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self removeTimer];
-    NSLog(@"remove timer");
+    //NSLog(@"remove timer");
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -53,17 +53,20 @@
     CGFloat x = self.pageControl.currentPage * kScreenWidth;
     [self.imageScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
     [self addTimer];
-    NSLog(@"add timer");
+    //NSLog(@"add timer");
 }
 
 - (UIScrollView *)imageScrollView {
     if (!_imageScrollView) {
         self.imageScrollView = [[UIScrollView alloc] init];
-        //[self.imageScrollView setUserInteractionEnabled:YES];
-        [self.imageScrollView setScrollEnabled:YES];
         [self.imageScrollView setPagingEnabled:YES];
         [self.imageScrollView setBounces:NO];
+//        [self.imageScrollView setContentMode:UIViewContentModeScaleAspectFill];
+//        [self.imageScrollView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//        [self.imageScrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+        
         [self.imageScrollView setShowsHorizontalScrollIndicator:NO];
+        [self.imageScrollView setShowsVerticalScrollIndicator:NO];
         [self.imageScrollView setDelegate:self];
     }
     return _imageScrollView;
@@ -77,7 +80,7 @@
 }
 
 - (void)addTimer {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(scorllToNextImage) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(scorllToNextImage) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
 }
 
@@ -100,6 +103,8 @@
     [self.topImageViews removeAllObjects];
     
     [self.pageControl setNumberOfPages:topStoryModels.count];
+    self.imageScrollView.contentSize = CGSizeMake(topStoryModels.count * kScreenWidth, self.imageScrollView.frame.size.height);
+    
     for (NSUInteger i = 0; i < topStoryModels.count; i++) {
         TopImageView *imageView = [[TopImageView alloc] init];
         imageView.model = topStoryModels[i];

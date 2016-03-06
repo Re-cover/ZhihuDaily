@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) UIImageView *storyImageView;
 
-@property (nonatomic, strong) UILabel *multiPicturesLabel;
+@property (nonatomic, strong) UIImageView *multiPicImageView;
 
 @property (nonatomic, strong) NSTimer *timer;
 

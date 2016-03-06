@@ -23,4 +23,6 @@
 
 @property (nonatomic, assign) BOOL multipic;
 
+@property (nonatomic, assign) BOOL isRead;
+
 @end

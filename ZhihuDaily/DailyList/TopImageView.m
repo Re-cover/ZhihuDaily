@@ -28,7 +28,7 @@
         
         [self addSubview:self.topStoryTitleLabel];
         [self.topStoryTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(120, 24, 20, 24));
+            make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(100, 24, 20, 24));
         }];
         
         [self addSubview:self.imageSourceLabel];
@@ -55,11 +55,11 @@
 - (UILabel *)topStoryTitleLabel {
     if (!_topStoryTitleLabel) {
         self.topStoryTitleLabel = [[UILabel alloc] init];
-        [self.topStoryTitleLabel setText:@"测试"];
+        [self.topStoryTitleLabel setText:@""];
         [self.topStoryTitleLabel setTextColor:[UIColor whiteColor]];
         [self.topStoryTitleLabel setFont:[UIFont fontWithName:@"PingFang SC" size:20]];
-        [self.topStoryTitleLabel setTextAlignment:NSTextAlignmentLeft];
-        [self.topStoryTitleLabel setNumberOfLines:2];
+        [self.topStoryTitleLabel setTextAlignment:NSTextAlignmentJustified];
+        [self.topStoryTitleLabel setNumberOfLines:3];
     }
     return _topStoryTitleLabel;
 }
