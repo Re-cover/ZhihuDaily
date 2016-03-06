@@ -30,6 +30,7 @@
     [self.view addSubview:self.splashView.backgroundImageView];
     [self.view addSubview:self.splashView.logoImageView];
     [self.view addSubview:self.splashView.copyrightLabel];
+    [self layoutPageSubviews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -51,8 +52,7 @@
     }];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+- (void)layoutPageSubviews {
     [self.splashView.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
@@ -67,6 +67,10 @@
         make.height.equalTo(@80);
     }];
 }
+
+//- (void)viewDidLayoutSubviews {
+//    [super viewDidLayoutSubviews]
+//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

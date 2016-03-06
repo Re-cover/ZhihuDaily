@@ -37,6 +37,8 @@
     return self;
 }
 
+# pragma mark - ScrollDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offset = scrollView.contentOffset.x;
     self.pageControl.currentPage = (NSInteger)(offset / kScreenWidth + 0.5);
@@ -56,14 +58,16 @@
     //NSLog(@"add timer");
 }
 
+# pragma mark - Getters and Setters
+
 - (UIScrollView *)imageScrollView {
     if (!_imageScrollView) {
         self.imageScrollView = [[UIScrollView alloc] init];
         [self.imageScrollView setPagingEnabled:YES];
         [self.imageScrollView setBounces:NO];
-//        [self.imageScrollView setContentMode:UIViewContentModeScaleAspectFill];
-//        [self.imageScrollView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-//        [self.imageScrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+        //        [self.imageScrollView setContentMode:UIViewContentModeScaleAspectFill];
+        //        [self.imageScrollView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+        //        [self.imageScrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         
         [self.imageScrollView setShowsHorizontalScrollIndicator:NO];
         [self.imageScrollView setShowsVerticalScrollIndicator:NO];
@@ -77,22 +81,6 @@
         self.pageControl = [[UIPageControl alloc] init];
     }
     return _pageControl;
-}
-
-- (void)addTimer {
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(scorllToNextImage) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
-}
-
-- (void)removeTimer {
-    [self.timer invalidate];
-}
-
-- (void)scorllToNextImage {
-    NSLog(@"%ld", self.pageControl.currentPage);
-    NSInteger page = (self.pageControl.currentPage + 1) % self.pageControl.numberOfPages;
-    CGFloat x = page * kScreenWidth;
-    [self.imageScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
 }
 
 - (void)setTopStoryModels:(NSMutableArray<TopStoryModel *> *)topStoryModels {
@@ -116,6 +104,24 @@
         [self removeTimer];
     }
     [self addTimer];
+}
+
+# pragma mark - Private Methods
+
+- (void)addTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(scorllToNextImage) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+}
+
+- (void)removeTimer {
+    [self.timer invalidate];
+}
+
+- (void)scorllToNextImage {
+    //NSLog(@"%ld", self.pageControl.currentPage);
+    NSInteger page = (self.pageControl.currentPage + 1) % self.pageControl.numberOfPages;
+    CGFloat x = page * kScreenWidth;
+    [self.imageScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
 }
 
 @end

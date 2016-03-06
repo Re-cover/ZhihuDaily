@@ -16,6 +16,9 @@
 
 #import "ImageStoryCell.h"
 #import "ImageScrollView.h"
+#import "NavigationView.h"
+#import "DateHeaderView.h"
+
 #import <YYWebImage.h>
 #import <Masonry.h>
 
@@ -29,6 +32,8 @@
 
 @property (nonatomic, strong) ImageScrollView *imageScrollView;
 
+@property (nonatomic, strong) NavigationView *navView;
+
 @end
 
 @implementation DailyTableViewController
@@ -39,14 +44,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setHidden:YES];
+
     [self.tableView setShowsVerticalScrollIndicator:NO];
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
     [self.tableView setSeparatorColor:[UIColor lightGrayColor]];
-    @weakify(self);
     
     self.imageScrollView = [[ImageScrollView alloc] init];
     [self.tableView setTableHeaderView:self.imageScrollView];
     
+    self.navView = [[NavigationView alloc] init];
+    [self.view addSubview:self.navView];
+    
+    @weakify(self);
     [self.tableView addPullToRefreshWithActionHandler:^{
         [weak_self loadLatestStories];
     }];
@@ -55,19 +64,111 @@
     }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.tableView reloadData];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView triggerPullToRefresh];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+}
+
+# pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.modelArrary.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[self.modelArrary[section] stories] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *identifier = @"imageStoryCell";
+    ImageStoryCell *imageStoryCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!imageStoryCell) {
+        imageStoryCell = [[ImageStoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    
+    [imageStoryCell.storyTitleLabel setText: [self storyModelWithIndexPath:indexPath].title];
+    [imageStoryCell.storyImageView yy_setImageWithURL:[NSURL URLWithString:[[self storyModelWithIndexPath:indexPath].images firstObject]] placeholder:nil];
+    //注意这里由于要对cell进行重用，所以对于非多图的cell要进行hidden
+    if ([[self storyModelWithIndexPath:indexPath] multipic]) {
+        [imageStoryCell.multiPicImageView setHidden:NO];
+    } else {
+        [imageStoryCell.multiPicImageView setHidden:YES];
+    }
+    //与上同理
+    if ([[self storyModelWithIndexPath:indexPath] isRead]) {
+        [imageStoryCell.storyTitleLabel setTextColor:[UIColor grayColor]];
+    } else {
+        [imageStoryCell.storyTitleLabel setTextColor:[UIColor blackColor]];
+    }
+    return imageStoryCell;
+}
+
+# pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 90;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return section ? 40 : 0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [[self storyModelWithIndexPath:indexPath] setIsRead:YES];
+    //[self.tableView reloadData];
+    //NSLog(@"%ld", indexPath.row);
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    DateHeaderView *headerView = [[DateHeaderView alloc] init];
+    [headerView.dateLabel setText:(NSString *)[[self.modelArrary objectAtIndex:section] date]];
+    return headerView;
+}
+
+//- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
+//    if (section == 1) {
+//        [self.navView.titleLabel setText:(NSString *)[[self.modelArrary objectAtIndex:section] date]];
+//    }
+//}
+
+# pragma mark - ScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat yOffset = scrollView.contentOffset.y;
+    CGFloat  heightDiff = self.imageScrollView.bounds.size.height - self.navView.bounds.size.height;
+//    CGFloat height = self.tableView.tableHeaderView.frame.size.height;
+//    if (yOffset < 0) {
+//        height = 200 - yOffset;
+//        [self.tableView beginUpdates];
+//        [self.tableView.tableHeaderView setFrame:CGRectMake(0, yOffset / 2, self.view.bounds.size.width, height)];
+//        [self.imageScrollView.imageScrollView setContentSize:CGSizeMake(self.imageScrollView.imageScrollView.bounds.size.width, height)];
+//        [self.tableView setTableHeaderView:self.imageScrollView];
+//        [self.tableView endUpdates];
+//    }
+    if (yOffset >= 0) {
+        self.navView.backgroundColor = [UIColor colorWithRed:23/255. green:144/255. blue:211/255. alpha:yOffset/heightDiff];
+        [self.navView setFrame:CGRectMake(0, yOffset, self.navView.frame.size.width, self.navView.frame.size.height)];
+        //NSLog(@"%lf %lf",  yOffset,heightDiff);
+    }
+    CGFloat sectionHeaderHeight = 40;
+    if (yOffset <= sectionHeaderHeight && yOffset > 0) {
+        scrollView.contentInset = UIEdgeInsetsMake(64 - scrollView.contentOffset.y, 0, 0, 0);
+    }
+    else if (yOffset >= sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(64 - sectionHeaderHeight, 0, 0, 0);
+    }
+}
+
+# pragma mark - Private Methods
 
 -(void)loadLatestStories {
-  @weakify(self);
+    @weakify(self);
     [ApiRequest latestStoriesModelComplete:^(LatestStoriesModel *model) {
         self.imageScrollView.topStoryModels = [model.topStories mutableCopy];
         if (!weak_self.modelArrary) {
@@ -103,83 +204,10 @@
     }];
 }
 
-
-# pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.modelArrary.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self.modelArrary[section] stories] count];
-}
-
-# pragma mark - storyModelWithIndexPath
-
 - (StoryModel *)storyModelWithIndexPath:(NSIndexPath *)indexPath {
     StoryModel *model = [[StoryModel alloc] init];
     model = [[self.modelArrary[indexPath.section] stories] objectAtIndex:indexPath.row];
     return model;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"imageStoryCell";
-    ImageStoryCell *imageStoryCell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!imageStoryCell) {
-        imageStoryCell = [[ImageStoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    
-    [imageStoryCell.storyTitleLabel setText: [self storyModelWithIndexPath:indexPath].title];
-    [imageStoryCell.storyImageView yy_setImageWithURL:[NSURL URLWithString:[[self storyModelWithIndexPath:indexPath].images firstObject]] placeholder:nil];
-    //注意这里由于要对cell进行重用，所以对于非多图的cell要进行hidden
-    if ([[self storyModelWithIndexPath:indexPath] multipic]) {
-        [imageStoryCell.multiPicImageView setHidden:NO];
-    } else {
-        [imageStoryCell.multiPicImageView setHidden:YES];
-    }
-    //同上
-    if ([[self storyModelWithIndexPath:indexPath] isRead]) {
-        [imageStoryCell.storyTitleLabel setTextColor:[UIColor grayColor]];
-    } else {
-        [imageStoryCell.storyTitleLabel setTextColor:[UIColor blackColor]];
-    }
-    return imageStoryCell;
-}
-# pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section ? 30 : 0;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [[self storyModelWithIndexPath:indexPath] setIsRead:YES];
-    //[self.tableView reloadData];
-    //NSLog(@"%ld", indexPath.row);
-}
-
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat yOffset = self.tableView.contentOffset.y;
-//    CGFloat height = self.tableView.tableHeaderView.frame.size.height;
-//    if (yOffset < 0) {
-//        height = 200 - yOffset;
-//        [self.tableView beginUpdates];
-//        [self.tableView.tableHeaderView setFrame:CGRectMake(0, yOffset / 2, self.view.bounds.size.width, height)];
-//        [self.imageScrollView.imageScrollView setContentSize:CGSizeMake(self.imageScrollView.imageScrollView.bounds.size.width, height)];
-//        [self.tableView setTableHeaderView:self.imageScrollView];
-//        [self.tableView endUpdates];
-//    }
-    CGFloat sectionHeaderHeight = 30;
-    if (scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0) {
-        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-    }
-    else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
-    }
-}
 @end

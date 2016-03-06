@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 
-@property (nonatomic, strong) NSMutableArray <TopImageView *> *topImageViews;
+@property (nonatomic, strong) NSMutableArray<TopImageView *> *topImageViews;
 
 @property (nonatomic, strong) NSMutableArray<TopStoryModel *> *topStoryModels;
 

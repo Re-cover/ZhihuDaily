@@ -26,6 +26,11 @@
             make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
         
+        [self addSubview:self.maskImageView];
+        [self.maskImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        }];
+        
         [self addSubview:self.topStoryTitleLabel];
         [self.topStoryTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(100, 24, 20, 24));
@@ -62,6 +67,17 @@
         [self.topStoryTitleLabel setNumberOfLines:3];
     }
     return _topStoryTitleLabel;
+}
+
+- (UIImageView *)maskImageView {
+    if (!_maskImageView) {
+        self.maskImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Home_Image_Mask"]];
+        [self.maskImageView setContentMode:UIViewContentModeScaleAspectFill];
+        [self.maskImageView setClipsToBounds:YES];
+        [self.maskImageView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+        [self.maskImageView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    }
+    return  _maskImageView;
 }
 
 - (UILabel *)imageSourceLabel {

@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) UILabel *topStoryTitleLabel;
 
+@property (nonatomic, strong) UIImageView *maskImageView;
+
 @property (nonatomic, strong) UILabel *imageSourceLabel;
 
 @property (nonatomic, strong) TopStoryModel *model;

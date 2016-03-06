@@ -17,6 +17,8 @@
 		83599C191C8181120054E2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83599C171C8181120054E2EB /* LaunchScreen.storyboard */; };
 		83599C241C8181120054E2EB /* ZhihuDailyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C231C8181120054E2EB /* ZhihuDailyTests.m */; };
 		83599C2F1C8181120054E2EB /* ZhihuDailyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C2E1C8181120054E2EB /* ZhihuDailyUITests.m */; };
+		836505231C8C65E8003F9949 /* NavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836505221C8C65E8003F9949 /* NavigationView.m */; };
+		836505261C8C9424003F9949 /* DateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836505251C8C9424003F9949 /* DateHeaderView.m */; };
 		836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836561531C8A9729000A14F7 /* ImageScrollView.m */; };
 		8387FFDA1C8B24B3004CAB78 /* TopImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387FFD91C8B24B3004CAB78 /* TopImageView.m */; };
 		83D2191A1C857CA800EA76E8 /* ImageStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D219191C857CA800EA76E8 /* ImageStoryCell.m */; };
@@ -69,6 +71,10 @@
 		83599C2A1C8181120054E2EB /* ZhihuDailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhihuDailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83599C2E1C8181120054E2EB /* ZhihuDailyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZhihuDailyUITests.m; sourceTree = "<group>"; };
 		83599C301C8181120054E2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		836505211C8C65E8003F9949 /* NavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationView.h; path = DailyList/NavigationView.h; sourceTree = "<group>"; };
+		836505221C8C65E8003F9949 /* NavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationView.m; path = DailyList/NavigationView.m; sourceTree = "<group>"; };
+		836505241C8C9424003F9949 /* DateHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateHeaderView.h; path = DailyList/DateHeaderView.h; sourceTree = "<group>"; };
+		836505251C8C9424003F9949 /* DateHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateHeaderView.m; path = DailyList/DateHeaderView.m; sourceTree = "<group>"; };
 		836561521C8A9729000A14F7 /* ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageScrollView.h; path = DailyList/ImageScrollView.h; sourceTree = "<group>"; };
 		836561531C8A9729000A14F7 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageScrollView.m; path = DailyList/ImageScrollView.m; sourceTree = "<group>"; };
 		8387FFD81C8B24B3004CAB78 /* TopImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopImageView.h; path = DailyList/TopImageView.h; sourceTree = "<group>"; };
@@ -293,6 +299,10 @@
 				8387FFD91C8B24B3004CAB78 /* TopImageView.m */,
 				836561521C8A9729000A14F7 /* ImageScrollView.h */,
 				836561531C8A9729000A14F7 /* ImageScrollView.m */,
+				836505211C8C65E8003F9949 /* NavigationView.h */,
+				836505221C8C65E8003F9949 /* NavigationView.m */,
+				836505241C8C9424003F9949 /* DateHeaderView.h */,
+				836505251C8C9424003F9949 /* DateHeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -504,7 +514,9 @@
 				83D5F3381C81EFCC0071B958 /* SplashViewController.m in Sources */,
 				83F776C01C84340800386F8D /* ApiRequest.m in Sources */,
 				831264F71C86CC0700D48BEF /* BeforeStoriesModel.m in Sources */,
+				836505231C8C65E8003F9949 /* NavigationView.m in Sources */,
 				83F776C51C84AA8900386F8D /* DailyTableViewController.m in Sources */,
+				836505261C8C9424003F9949 /* DateHeaderView.m in Sources */,
 				83F776C11C84340800386F8D /* NetworkClient.m in Sources */,
 				83F776BF1C84340800386F8D /* AFHTTPSessionManager+SharedManager.m in Sources */,
 				83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */,
