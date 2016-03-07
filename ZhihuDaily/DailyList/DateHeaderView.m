@@ -13,13 +13,13 @@
 
 - (instancetype)init
 {
-    self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40)];
+    self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 36)];
     if (self) {
         [self setBackgroundColor:[UIColor colorWithRed:23/255. green:144/255. blue:211/255. alpha:1]];
         
         [self addSubview:self.dateLabel];
         [self.dateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(10, 40, 10, 40));
+            make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(0, 50, 0, 50));
         }];
     }
     return self;

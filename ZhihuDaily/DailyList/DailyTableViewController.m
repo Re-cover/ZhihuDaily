@@ -8,6 +8,7 @@
 
 #import "DailyTableViewController.h"
 #import "ApiRequest.h"
+#import "DateConverter.h"
 
 #import "StoryModel.h"
 #import "TopStoryModel.h"
@@ -18,6 +19,7 @@
 #import "ImageScrollView.h"
 #import "NavigationView.h"
 #import "DateHeaderView.h"
+#import "MenuButton.h"
 
 #import <YYWebImage.h>
 #import <Masonry.h>
@@ -33,6 +35,8 @@
 @property (nonatomic, strong) ImageScrollView *imageScrollView;
 
 @property (nonatomic, strong) NavigationView *navView;
+
+@property (nonatomic, strong) MenuButton *menuButton;
 
 @end
 
@@ -54,6 +58,11 @@
     
     self.navView = [[NavigationView alloc] init];
     [self.view addSubview:self.navView];
+    
+    self.menuButton = [[MenuButton alloc] init];
+    [self.view addSubview:self.menuButton];
+    
+    [self layoutPageSubviews];
     
     @weakify(self);
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -115,7 +124,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return section ? 40 : 0;
+    return section ? 36 : 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -127,15 +136,12 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     DateHeaderView *headerView = [[DateHeaderView alloc] init];
-    [headerView.dateLabel setText:(NSString *)[[self.modelArrary objectAtIndex:section] date]];
+    NSString *dateString = (NSString *)[[self.modelArrary objectAtIndex:section] date];
+    [headerView.dateLabel setText:[DateConverter zhihuDateWith:dateString]];
+    [self.view bringSubviewToFront:self.menuButton];
+    //[self.navView bringSubviewToFront:self.navView.menuButton];
     return headerView;
 }
-
-//- (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section {
-//    if (section == 1) {
-//        [self.navView.titleLabel setText:(NSString *)[[self.modelArrary objectAtIndex:section] date]];
-//    }
-//}
 
 # pragma mark - ScrollViewDelegate
 
@@ -151,12 +157,21 @@
 //        [self.tableView setTableHeaderView:self.imageScrollView];
 //        [self.tableView endUpdates];
 //    }
+//    if (yOffset < 0) {
+//        CGFloat height = 200-yOffset;
+//        [self.imageScrollView setFrame:(CGRectMake(0, yOffset / 2, self.view.frame.size.width, height))];
+//        self.tableView.tableHeaderView = self.imageScrollView;
+//    }
+    
+    //navView固定在顶部，并且透明度随滚动距离变化
     if (yOffset >= 0) {
         self.navView.backgroundColor = [UIColor colorWithRed:23/255. green:144/255. blue:211/255. alpha:yOffset/heightDiff];
         [self.navView setFrame:CGRectMake(0, yOffset, self.navView.frame.size.width, self.navView.frame.size.height)];
         //NSLog(@"%lf %lf",  yOffset,heightDiff);
     }
-    CGFloat sectionHeaderHeight = 40;
+    
+    //sectionHeader固定位置的调整
+    CGFloat sectionHeaderHeight = 36;
     if (yOffset <= sectionHeaderHeight && yOffset > 0) {
         scrollView.contentInset = UIEdgeInsetsMake(64 - scrollView.contentOffset.y, 0, 0, 0);
     }
@@ -165,9 +180,19 @@
     }
 }
 
-# pragma mark - Private Methods
+# pragma <#arguments#>
 
--(void)loadLatestStories {
+# pragma mark - Private Methods
+- (void)layoutPageSubviews {
+    @weakify(self);
+    [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(24, 24));
+        make.left.equalTo(weak_self.navView).with.offset(10);
+        make.centerY.equalTo(weak_self.navView.titleLabel);
+    }];
+}
+
+- (void)loadLatestStories {
     @weakify(self);
     [ApiRequest latestStoriesModelComplete:^(LatestStoriesModel *model) {
         self.imageScrollView.topStoryModels = [model.topStories mutableCopy];
@@ -175,8 +200,7 @@
             weak_self.modelArrary = [[NSMutableArray alloc] init];
             [weak_self.modelArrary addObject:model];
         } else {
-//            [weak_self.modelArrary removeObjectAtIndex:0];
-//            [weak_self.modelArrary insertObject:model atIndex:0];
+            //转移『是否已读』数据
             NSUInteger oldModelCount = [[[weak_self.modelArrary firstObject] stories] count];
             NSUInteger newModelCount = model.stories.count - oldModelCount;
             for (NSUInteger i = 0; i < oldModelCount; i++) {

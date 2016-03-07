@@ -19,27 +19,27 @@
         
         [self addSubview:self.titleLabel];
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(34, 40, 10, 40));
+            make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(30, 50, 10, 50));
         }];
             
-        [self addSubview:self.menuButton];
-        [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(24, 24));
-            make.left.equalTo(self).with.offset(10);
-            make.centerY.equalTo(self.titleLabel);
-        }];
+//        [self addSubview:self.menuButton];
+//        [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.size.mas_equalTo(CGSizeMake(24, 24));
+//            make.left.equalTo(self).with.offset(10);
+//            make.centerY.equalTo(self.titleLabel);
+//        }];
     }
     return self;
 }
 
-- (UIButton *)menuButton {
-    if (!_menuButton) {
-        self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.menuButton setImage:[UIImage imageNamed:@"Home_Icon"] forState:(UIControlStateNormal)];
-        [self.menuButton setImage:[UIImage imageNamed:@"Home_Icon_Highlight"] forState:UIControlStateHighlighted];
-    }
-    return _menuButton;
-}
+//- (UIButton *)menuButton {
+//    if (!_menuButton) {
+//        self.menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [self.menuButton setImage:[UIImage imageNamed:@"Home_Icon"] forState:(UIControlStateNormal)];
+//        [self.menuButton setImage:[UIImage imageNamed:@"Home_Icon_Highlight"] forState:UIControlStateHighlighted];
+//    }
+//    return _menuButton;
+//}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {

@@ -10,4 +10,6 @@
 
 @interface DateConverter : NSObject
 
++ (NSString *)zhihuDateWith:(NSString *)dateString;
+
 @end

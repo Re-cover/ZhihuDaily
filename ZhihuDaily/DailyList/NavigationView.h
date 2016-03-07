@@ -10,7 +10,7 @@
 
 @interface NavigationView : UIView
 
-@property (nonatomic, strong) UIButton *menuButton;
+//@property (nonatomic, strong) UIButton *menuButton;
 
 @property (nonatomic, strong) UILabel *titleLabel;
 
