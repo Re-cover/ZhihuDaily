@@ -21,6 +21,8 @@
 #import "DateHeaderView.h"
 #import "MenuButton.h"
 
+#import "StoryDetailViewController.h"
+
 #import <YYWebImage.h>
 #import <Masonry.h>
 
@@ -60,6 +62,7 @@
     [self.view addSubview:self.navView];
     
     self.menuButton = [[MenuButton alloc] init];
+    [self.menuButton addTarget:self action:@selector(menuButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.menuButton];
     
     [self layoutPageSubviews];
@@ -130,6 +133,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [[self storyModelWithIndexPath:indexPath] setIsRead:YES];
+    NSString *storyId = [NSString stringWithFormat:@"%ld", [[self storyModelWithIndexPath:indexPath] storyId]];
+    [self performSegueWithIdentifier:@"toStoryDetailSegue" sender:storyId];
     //[self.tableView reloadData];
     //NSLog(@"%ld", indexPath.row);
 }
@@ -139,7 +144,6 @@
     NSString *dateString = (NSString *)[[self.modelArrary objectAtIndex:section] date];
     [headerView.dateLabel setText:[DateConverter zhihuDateWith:dateString]];
     [self.view bringSubviewToFront:self.menuButton];
-    //[self.navView bringSubviewToFront:self.navView.menuButton];
     return headerView;
 }
 
@@ -180,7 +184,15 @@
     }
 }
 
-# pragma <#arguments#>
+# pragma mark - Event Response
+- (void)menuButtonClicked {
+    NSLog(@"被点击了");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    StoryDetailViewController *vc = segue.destinationViewController;
+    vc.storyId = sender;
+}
 
 # pragma mark - Private Methods
 - (void)layoutPageSubviews {

@@ -11,6 +11,7 @@
 		831264F71C86CC0700D48BEF /* BeforeStoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 831264F61C86CC0700D48BEF /* BeforeStoriesModel.m */; };
 		831264FB1C86D9D400D48BEF /* DateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 831264FA1C86D9D400D48BEF /* DateConverter.m */; };
 		83471A2E1C8D4DAA00A46C17 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A2D1C8D4DAA00A46C17 /* MenuButton.m */; };
+		83471A381C8D6F3B00A46C17 /* StoryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A371C8D6F3B00A46C17 /* StoryDetailViewController.m */; };
 		83599C0B1C8181120054E2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C0A1C8181120054E2EB /* main.m */; };
 		83599C0E1C8181120054E2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C0D1C8181120054E2EB /* AppDelegate.m */; };
 		83599C141C8181120054E2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83599C121C8181120054E2EB /* Main.storyboard */; };
@@ -60,6 +61,8 @@
 		831264FA1C86D9D400D48BEF /* DateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateConverter.m; path = Tools/DateConverter.m; sourceTree = "<group>"; };
 		83471A2C1C8D4DAA00A46C17 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuButton.h; path = DailyList/MenuButton.h; sourceTree = "<group>"; };
 		83471A2D1C8D4DAA00A46C17 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuButton.m; path = DailyList/MenuButton.m; sourceTree = "<group>"; };
+		83471A361C8D6F3B00A46C17 /* StoryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryDetailViewController.h; path = StoryDetail/StoryDetailViewController.h; sourceTree = "<group>"; };
+		83471A371C8D6F3B00A46C17 /* StoryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryDetailViewController.m; path = StoryDetail/StoryDetailViewController.m; sourceTree = "<group>"; };
 		83599C061C8181120054E2EB /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83599C0A1C8181120054E2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83599C0C1C8181120054E2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +173,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		83471A2F1C8D675000A46C17 /* StoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				83471A361C8D6F3B00A46C17 /* StoryDetailViewController.h */,
+				83471A371C8D6F3B00A46C17 /* StoryDetailViewController.m */,
+			);
+			name = StoryDetail;
+			sourceTree = "<group>";
+		};
 		83599BFD1C8181120054E2EB = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +217,7 @@
 				83599C3D1C8181CB0054E2EB /* Api */,
 				83D5F3391C81EFD70071B958 /* Splash */,
 				83F776C21C84A8EB00386F8D /* DailyList */,
+				83471A2F1C8D675000A46C17 /* StoryDetail */,
 				83599C091C8181120054E2EB /* Supporting Files */,
 			);
 			path = ZhihuDaily;
@@ -528,6 +541,7 @@
 				83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */,
 				836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */,
 				83F776D51C84BCAB00386F8D /* StoryModel.m in Sources */,
+				83471A381C8D6F3B00A46C17 /* StoryDetailViewController.m in Sources */,
 				831264FB1C86D9D400D48BEF /* DateConverter.m in Sources */,
 				83D2191A1C857CA800EA76E8 /* ImageStoryCell.m in Sources */,
 				83F776DE1C84CB3E00386F8D /* LatestStoriesModel.m in Sources */,

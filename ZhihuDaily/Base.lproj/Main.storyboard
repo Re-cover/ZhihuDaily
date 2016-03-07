@@ -69,6 +69,25 @@
             </objects>
             <point key="canvasLocation" x="-604.5" y="1224.5"/>
         </scene>
+        <!--Story Detail View Controller-->
+        <scene sceneID="znH-mc-CWG">
+            <objects>
+                <viewController id="SYG-tM-TDr" customClass="StoryDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QRp-3Q-nCi"/>
+                        <viewControllerLayoutGuide type="bottom" id="KhO-zs-gaH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hn2-nD-Jkg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N1F-fP-Lwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="892.5" y="404.5"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="hJa-fT-cw7">
             <objects>
@@ -96,6 +115,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="NYe-4Q-b0S" id="Q3A-yS-QLv"/>
+                        <segue destination="SYG-tM-TDr" kind="show" identifier="toStoryDetailSegue" id="Csb-z0-AuT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lp-Nt-X9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
