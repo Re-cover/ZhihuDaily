@@ -195,6 +195,11 @@
 }
 
 # pragma mark - Private Methods
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)layoutPageSubviews {
     @weakify(self);
     [self.menuButton mas_makeConstraints:^(MASConstraintMaker *make) {

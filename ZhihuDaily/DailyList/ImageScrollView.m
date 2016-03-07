@@ -95,7 +95,7 @@
     
     for (NSUInteger i = 0; i < topStoryModels.count; i++) {
         TopImageView *imageView = [[TopImageView alloc] init];
-        imageView.model = topStoryModels[i];
+        imageView.topStoryModel = topStoryModels[i];
         [self.topImageViews addObject:imageView];
         [self.imageScrollView addSubview:imageView];
         imageView.frame = CGRectMake(i * kScreenWidth, 0, kScreenWidth, imageView.bounds.size.height);

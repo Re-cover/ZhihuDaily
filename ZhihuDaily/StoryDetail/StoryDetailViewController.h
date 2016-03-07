@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StoryDetailViewController : UIViewController <UIGestureRecognizerDelegate, UINavigationControllerDelegate>
+@interface StoryDetailViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, copy) NSString *storyId;
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class TopStoryModel;
+@class StoryDetailModel;
 
 @interface TopImageView : UIView
 
@@ -19,6 +20,8 @@
 
 @property (nonatomic, strong) UILabel *imageSourceLabel;
 
-@property (nonatomic, strong) TopStoryModel *model;
+@property (nonatomic, strong) TopStoryModel *topStoryModel;
+
+@property (nonatomic, strong) StoryDetailModel *storyDetailModel;
 
 @end

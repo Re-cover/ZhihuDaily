@@ -8,6 +8,7 @@
 
 #import "TopImageView.h"
 #import "TopStoryModel.h"
+#import "StoryDetailModel.h"
 #import <Masonry.h>
 #import <YYWebImage.h>
 
@@ -92,11 +93,19 @@
     return _imageSourceLabel;
 }
 
-- (void)setModel:(TopStoryModel *)model {
-    _model = model;
-     NSURL *url = [NSURL URLWithString:model.image];
+- (void)setTopStoryModel:(TopStoryModel *)topStoryModel {
+    _topStoryModel = topStoryModel;
+     NSURL *url = [NSURL URLWithString:topStoryModel.image];
     [self.topStoryImage yy_setImageWithURL:url placeholder:nil];
-    [self.topStoryTitleLabel setText:model.title];
+    [self.topStoryTitleLabel setText:topStoryModel.title];
+}
+
+- (void)setStoryDetailModel:(StoryDetailModel *)storyDetailModel {
+    _storyDetailModel = storyDetailModel;
+    NSURL *url = [NSURL URLWithString: storyDetailModel.image];
+    [self.topStoryImage yy_setImageWithURL:url placeholder:nil];
+    [self.topStoryTitleLabel setText:storyDetailModel.title];
+    [self.imageSourceLabel setText:[NSString stringWithFormat:@"图片：%@", storyDetailModel.image_source]];
 }
 
 @end

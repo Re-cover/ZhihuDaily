@@ -21,4 +21,6 @@ typedef void(^failure)(NSError *error);
 
 + (void)beforeStoriesModelWithParameter:(id)parameter complete:(success)successBlock failure:(failure)failureBlock;
 
++ (void)storyDetailModelWithParameter:(id)paramter complete:(success)successBlock failure:(failure)failureBlock;
+
 @end
