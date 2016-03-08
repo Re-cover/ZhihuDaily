@@ -135,8 +135,6 @@
     [[self storyModelWithIndexPath:indexPath] setIsRead:YES];
     NSString *storyId = [NSString stringWithFormat:@"%ld", [[self storyModelWithIndexPath:indexPath] storyId]];
     [self performSegueWithIdentifier:@"toStoryDetailSegue" sender:storyId];
-    //[self.tableView reloadData];
-    //NSLog(@"%ld", indexPath.row);
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

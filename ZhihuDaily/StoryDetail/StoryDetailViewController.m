@@ -12,6 +12,7 @@
 
 #import "TopImageView.h"
 #import "StoryDetailScorllView.h"
+#import "StoryDetailWebView.h"
 
 #import "ApiRequest.h"
 #import <Masonry.h>
@@ -24,32 +25,43 @@
 
 @property (nonatomic, strong) TopImageView *topImageView;
 
+@property (nonatomic, strong) StoryDetailWebView *webView;
+
 @end
 
 @implementation StoryDetailViewController
 
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationController setDelegate:self];
-    [self.navigationController.interactivePopGestureRecognizer setDelegate:self];
-    [self.scrollView setDelegate:self];
     
-    self.scrollView = [[StoryDetailScorllView alloc] init];
+    [self.navigationController.navigationBar setHidden:YES];
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [self.view addSubview:self.scrollView];
     
-    self.topImageView = [[TopImageView alloc] init];
+    self.webView = [[StoryDetailWebView alloc] init];
+    [self.scrollView addSubview:self.webView];
+    
+    self.topImageView = [[TopImageView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, 200)];
     [self.scrollView addSubview: self.topImageView];
     
-    [self layoutPageSubviews];
+    //[self layoutPageSubviews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setDelegate:self];
+    [self.navigationController.interactivePopGestureRecognizer setDelegate:self];
+    [self.scrollView setDelegate:self];
+    [self.webView setDelegate:self];
+    
     @weakify(self);
     [ApiRequest storyDetailModelWithParameter:self.storyId complete:^(StoryDetailModel *model) {
         weak_self.model = model;
         weak_self.topImageView.storyDetailModel = model;
-        
+        weak_self.webView.model = model;
     } failure:^(NSError *error) {
         NSLog(@"%@", error.localizedDescription);
     }];
@@ -72,6 +84,16 @@
     }
 }
 
+#pragma mark - UIWebView Delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    CGSize webSize= [webView sizeThatFits:CGSizeZero];
+    [self.scrollView setContentSize:webSize];
+    [self.webView setFrame:CGRectMake(0, -20, webSize.width, webSize.height)];
+}
+
+#pragma mark - UIScrollView Delegate
+
 
 # pragma mark - Private Methods
 
@@ -79,18 +101,25 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (void)layoutPageSubviews {
-    @weakify(self);
-    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weak_self.view);
-    }];
+//- (void)layoutPageSubviews {
+//    @weakify(self);
+//    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(weak_self.view);
+//    }];
     
-    [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(@200);
-        make.top.equalTo(weak_self.view);
-        make.left.equalTo(weak_self.view);
-        make.right.equalTo(weak_self.view);
-    }];
-}
+//    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weak_self.view);
+//        make.bottom.equalTo(weak_self.view);
+//        make.left.equalTo(weak_self.view);
+//        make.right.equalTo(weak_self.view);
+//    }];
+//    
+//    [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(@200);
+//        make.width.mas_equalTo(kScreenWidth);
+//        make.top.equalTo(weak_self.view);
+//        make.left.equalTo(weak_self.view);
+//    }];
+//}
 
 @end

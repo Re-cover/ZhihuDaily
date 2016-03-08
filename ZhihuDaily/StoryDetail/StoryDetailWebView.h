@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class StoryDetailModel;
 
 @interface StoryDetailWebView : UIWebView
+
+@property (nonatomic, strong) StoryDetailModel *model;
 
 @end

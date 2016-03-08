@@ -12,10 +12,8 @@
 
 - (instancetype)init
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     if (self) {
-        [self setShowsHorizontalScrollIndicator:NO];
-        [self setAlwaysBounceHorizontal:NO];
     }
     return self;
 }

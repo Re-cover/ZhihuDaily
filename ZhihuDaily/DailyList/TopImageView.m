@@ -14,8 +14,8 @@
 
 @implementation TopImageView
 
-- (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
         @weakify(self);
         [self addSubview:self.topStoryImage];

@@ -61,9 +61,9 @@
         self.imageScrollView = [[UIScrollView alloc] init];
         [self.imageScrollView setPagingEnabled:YES];
         [self.imageScrollView setBounces:NO];
-        //        [self.imageScrollView setContentMode:UIViewContentModeScaleAspectFill];
-        //        [self.imageScrollView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-        //        [self.imageScrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+//        [self.imageScrollView setContentMode:UIViewContentModeScaleAspectFill];
+//        [self.imageScrollView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//        [self.imageScrollView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
         
         [self.imageScrollView setShowsHorizontalScrollIndicator:NO];
         [self.imageScrollView setShowsVerticalScrollIndicator:NO];
@@ -90,7 +90,7 @@
     self.imageScrollView.contentSize = CGSizeMake(topStoryModels.count * kScreenWidth, self.imageScrollView.frame.size.height);
     
     for (NSUInteger i = 0; i < topStoryModels.count; i++) {
-        TopImageView *imageView = [[TopImageView alloc] init];
+        TopImageView *imageView = [[TopImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
         imageView.topStoryModel = topStoryModels[i];
         [self.topImageViews addObject:imageView];
         [self.imageScrollView addSubview:imageView];
