@@ -15,7 +15,6 @@
 
 #import "ApiRequest.h"
 #import <Masonry.h>
-#import <SafariServices/SafariServices.h>
 
 @interface StoryDetailViewController()
 
