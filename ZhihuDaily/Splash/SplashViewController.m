@@ -13,8 +13,6 @@
 #import <YYWebImage.h>
 #import <Masonry.h>
 
-#define weakify(object) autoreleasepool{} __weak typeof(object) weak_##object = object;
-
 @interface SplashViewController ()
 
 @property (nonatomic, strong) SplashView *splashView;

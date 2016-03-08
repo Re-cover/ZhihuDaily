@@ -12,10 +12,6 @@
 #import <Masonry.h>
 #import <YYWebImage.h>
 
-#define weakify(object) autoreleasepool{} __weak typeof(object) weak_##object = object;
-#define kScreenWidth         [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight        [UIScreen mainScreen].bounds.size.height
-
 @implementation TopImageView
 
 - (instancetype)init {

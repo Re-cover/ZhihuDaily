@@ -15,6 +15,7 @@
 		83471A3E1C8D836F00A46C17 /* StoryDetailWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A3D1C8D836F00A46C17 /* StoryDetailWebView.m */; };
 		83471A411C8D887700A46C17 /* StoryDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A401C8D887700A46C17 /* StoryDetailModel.m */; };
 		83471A441C8D8E3000A46C17 /* SectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A431C8D8E3000A46C17 /* SectionModel.m */; };
+		8351C5701C8E6299007D078B /* StoryDetailScorllView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351C56F1C8E6299007D078B /* StoryDetailScorllView.m */; };
 		83599C0B1C8181120054E2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C0A1C8181120054E2EB /* main.m */; };
 		83599C0E1C8181120054E2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C0D1C8181120054E2EB /* AppDelegate.m */; };
 		83599C141C8181120054E2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83599C121C8181120054E2EB /* Main.storyboard */; };
@@ -72,6 +73,9 @@
 		83471A401C8D887700A46C17 /* StoryDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryDetailModel.m; path = StoryDetail/StoryDetailModel.m; sourceTree = "<group>"; };
 		83471A421C8D8E3000A46C17 /* SectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionModel.h; path = StoryDetail/SectionModel.h; sourceTree = "<group>"; };
 		83471A431C8D8E3000A46C17 /* SectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionModel.m; path = StoryDetail/SectionModel.m; sourceTree = "<group>"; };
+		8351C56E1C8E6299007D078B /* StoryDetailScorllView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryDetailScorllView.h; path = StoryDetail/StoryDetailScorllView.h; sourceTree = "<group>"; };
+		8351C56F1C8E6299007D078B /* StoryDetailScorllView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryDetailScorllView.m; path = StoryDetail/StoryDetailScorllView.m; sourceTree = "<group>"; };
+		8351C5711C8E6334007D078B /* ZhihuDaily.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZhihuDaily.pch; sourceTree = "<group>"; };
 		83599C061C8181120054E2EB /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83599C0A1C8181120054E2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83599C0C1C8181120054E2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 			children = (
 				83471A3C1C8D836F00A46C17 /* StoryDetailWebView.h */,
 				83471A3D1C8D836F00A46C17 /* StoryDetailWebView.m */,
+				8351C56E1C8E6299007D078B /* StoryDetailScorllView.h */,
+				8351C56F1C8E6299007D078B /* StoryDetailScorllView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				83599C0A1C8181120054E2EB /* main.m */,
+				8351C5711C8E6334007D078B /* ZhihuDaily.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -577,6 +584,7 @@
 				83471A2E1C8D4DAA00A46C17 /* MenuButton.m in Sources */,
 				836505261C8C9424003F9949 /* DateHeaderView.m in Sources */,
 				83F776C11C84340800386F8D /* NetworkClient.m in Sources */,
+				8351C5701C8E6299007D078B /* StoryDetailScorllView.m in Sources */,
 				83F776BF1C84340800386F8D /* AFHTTPSessionManager+SharedManager.m in Sources */,
 				83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */,
 				836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */,
@@ -728,6 +736,8 @@
 			baseConfigurationReference = 01F833E51A57CF55310FED17 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZhihuDaily/ZhihuDaily.pch;
 				INFOPLIST_FILE = ZhihuDaily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Recover.ZhihuDaily;
@@ -740,6 +750,8 @@
 			baseConfigurationReference = BA36B153378AACC1C1174823 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ZhihuDaily/ZhihuDaily.pch;
 				INFOPLIST_FILE = ZhihuDaily/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Recover.ZhihuDaily;

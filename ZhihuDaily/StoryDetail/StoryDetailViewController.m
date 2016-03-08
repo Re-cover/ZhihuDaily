@@ -9,11 +9,12 @@
 
 #import "StoryDetailViewController.h"
 #import "StoryDetailModel.h"
+
 #import "TopImageView.h"
+#import "StoryDetailScorllView.h"
+
 #import "ApiRequest.h"
 #import <Masonry.h>
-
-#define weakify(object) autoreleasepool{} __weak typeof(object) weak_##object = object;
 
 @interface StoryDetailViewController()
 
@@ -33,7 +34,7 @@
     [self.navigationController.interactivePopGestureRecognizer setDelegate:self];
     [self.scrollView setDelegate:self];
     
-    self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView = [[StoryDetailScorllView alloc] init];
     [self.view addSubview:self.scrollView];
     
     self.topImageView = [[TopImageView alloc] init];
@@ -81,14 +82,14 @@
 - (void)layoutPageSubviews {
     @weakify(self);
     [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(weak_self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(weak_self.view);
     }];
     
     [self.topImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(@200);
-        make.top.equalTo(self.scrollView);
-        make.left.equalTo(self.scrollView);
-        make.right.equalTo(self.scrollView);
+        make.top.equalTo(weak_self.view);
+        make.left.equalTo(weak_self.view);
+        make.right.equalTo(weak_self.view);
     }];
 }
 

@@ -29,7 +29,7 @@
 #import <SVPullToRefresh.h>
 
 
-#define weakify(object) autoreleasepool{} __weak typeof(object) weak_##object = object;
+
 @interface DailyTableViewController()
 
 @property (nonatomic, strong) NSMutableArray *modelArrary;

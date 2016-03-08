@@ -9,8 +9,6 @@
 #import "ImageStoryCell.h"
 #import <Masonry.h>
 
-#define weakify(object) autoreleasepool{} __weak typeof(object) weak_##object = object;
-
 @implementation ImageStoryCell
 
 //- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
