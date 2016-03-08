@@ -102,10 +102,16 @@
 
 #pragma mark - UIScrollView Delegate
 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat yOffset = scrollView.contentOffset.y;
-//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithWhite:1.0 alpha:(yOffset -180) / 20]];
-//}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat yOffset = scrollView.contentOffset.y;
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithWhite:1.0 alpha:(yOffset -180) / 20]];
+    if (yOffset < 0) {
+        yOffset =  yOffset < -100 ? -100 : yOffset;
+        CGFloat height = 200 - yOffset;
+        [self.topImageView setFrame:CGRectMake(0, yOffset, kScreenWidth, height)];
+        [self.scrollView setContentOffset:CGPointMake(0, yOffset)];
+    }
+}
 
 
 # pragma mark - Private Methods
