@@ -11,7 +11,6 @@
 #import "StoryDetailModel.h"
 
 #import "TopImageView.h"
-#import "StoryDetailScorllView.h"
 #import "StoryDetailWebView.h"
 
 #import "ApiRequest.h"
@@ -41,7 +40,7 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [self.view addSubview:self.scrollView];
     
-    self.webView = [[StoryDetailWebView alloc] init];
+    self.webView = [[StoryDetailWebView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight)];
     [self.scrollView addSubview:self.webView];
     
     self.topImageView = [[TopImageView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, 200)];
@@ -93,6 +92,15 @@
 }
 
 #pragma mark - UIScrollView Delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat yOffset = scrollView.contentOffset.y;
+    NSLog(@"%lf", yOffset);
+//    [self.navigationController.navigationBar setTintColor:[UIColor colorWithWhite:1.0 alpha:(yOffset -180) / 20]];
+    if (yOffset > 100) {
+        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    }
+}
 
 
 # pragma mark - Private Methods
