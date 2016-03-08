@@ -15,6 +15,7 @@
 
 #import "ApiRequest.h"
 #import <Masonry.h>
+#import <SafariServices/SafariServices.h>
 
 @interface StoryDetailViewController()
 
@@ -36,14 +37,15 @@
     [super viewDidLoad];
     
     [self.navigationController.navigationBar setHidden:YES];
+    self.automaticallyAdjustsScrollViewInsets = NO;   //设置坐标原点为（0，0）
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [self.view addSubview:self.scrollView];
     
-    self.webView = [[StoryDetailWebView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight)];
+    self.webView = [[StoryDetailWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
     [self.scrollView addSubview:self.webView];
     
-    self.topImageView = [[TopImageView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, 200)];
+    self.topImageView = [[TopImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     [self.scrollView addSubview: self.topImageView];
     
     //[self layoutPageSubviews];
@@ -88,19 +90,23 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     CGSize webSize= [webView sizeThatFits:CGSizeZero];
     [self.scrollView setContentSize:webSize];
-    [self.webView setFrame:CGRectMake(0, -20, webSize.width, webSize.height)];
+    [self.webView setFrame:CGRectMake(0, 0, webSize.width, webSize.height)];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    if (([[url scheme] isEqualToString:@"http"] || [[url scheme] isEqualToString:@"https"]) && navigationType == UIWebViewNavigationTypeLinkClicked) {
+        return ![[UIApplication sharedApplication] openURL:url];
+    }
+    return YES;
 }
 
 #pragma mark - UIScrollView Delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat yOffset = scrollView.contentOffset.y;
-    NSLog(@"%lf", yOffset);
-//    [self.navigationController.navigationBar setTintColor:[UIColor colorWithWhite:1.0 alpha:(yOffset -180) / 20]];
-    if (yOffset > 100) {
-        [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat yOffset = scrollView.contentOffset.y;
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithWhite:1.0 alpha:(yOffset -180) / 20]];
+//}
 
 
 # pragma mark - Private Methods
