@@ -15,6 +15,9 @@
 		83471A3E1C8D836F00A46C17 /* StoryDetailWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A3D1C8D836F00A46C17 /* StoryDetailWebView.m */; };
 		83471A411C8D887700A46C17 /* StoryDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A401C8D887700A46C17 /* StoryDetailModel.m */; };
 		83471A441C8D8E3000A46C17 /* SectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83471A431C8D8E3000A46C17 /* SectionModel.m */; };
+		8351C57E1C8F0F6C007D078B /* SlideMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351C57D1C8F0F6C007D078B /* SlideMenuModel.m */; };
+		8351C5851C8F0FF2007D078B /* SlideMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351C5841C8F0FF2007D078B /* SlideMenuView.m */; };
+		8351C5881C8F1105007D078B /* SlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8351C5871C8F1105007D078B /* SlideMenuViewController.m */; };
 		83599C0B1C8181120054E2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C0A1C8181120054E2EB /* main.m */; };
 		83599C0E1C8181120054E2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83599C0D1C8181120054E2EB /* AppDelegate.m */; };
 		83599C141C8181120054E2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83599C121C8181120054E2EB /* Main.storyboard */; };
@@ -73,6 +76,12 @@
 		83471A421C8D8E3000A46C17 /* SectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectionModel.h; path = StoryDetail/SectionModel.h; sourceTree = "<group>"; };
 		83471A431C8D8E3000A46C17 /* SectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionModel.m; path = StoryDetail/SectionModel.m; sourceTree = "<group>"; };
 		8351C5711C8E6334007D078B /* ZhihuDaily.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZhihuDaily.pch; sourceTree = "<group>"; };
+		8351C57C1C8F0F6C007D078B /* SlideMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuModel.h; path = SlideMenu/SlideMenuModel.h; sourceTree = "<group>"; };
+		8351C57D1C8F0F6C007D078B /* SlideMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideMenuModel.m; path = SlideMenu/SlideMenuModel.m; sourceTree = "<group>"; };
+		8351C5831C8F0FF2007D078B /* SlideMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuView.h; path = SlideMenu/SlideMenuView.h; sourceTree = "<group>"; };
+		8351C5841C8F0FF2007D078B /* SlideMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideMenuView.m; path = SlideMenu/SlideMenuView.m; sourceTree = "<group>"; };
+		8351C5861C8F1105007D078B /* SlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideMenuViewController.h; path = SlideMenu/SlideMenuViewController.h; sourceTree = "<group>"; };
+		8351C5871C8F1105007D078B /* SlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideMenuViewController.m; path = SlideMenu/SlideMenuViewController.m; sourceTree = "<group>"; };
 		83599C061C8181120054E2EB /* ZhihuDaily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuDaily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83599C0A1C8181120054E2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83599C0C1C8181120054E2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +231,43 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		8351C5721C8F0DB0007D078B /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8351C57B1C8F0F23007D078B /* Model */,
+				8351C57A1C8F0F20007D078B /* View */,
+				8351C5791C8F0F1D007D078B /* Controller */,
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		8351C5791C8F0F1D007D078B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8351C5861C8F1105007D078B /* SlideMenuViewController.h */,
+				8351C5871C8F1105007D078B /* SlideMenuViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8351C57A1C8F0F20007D078B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8351C5831C8F0FF2007D078B /* SlideMenuView.h */,
+				8351C5841C8F0FF2007D078B /* SlideMenuView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8351C57B1C8F0F23007D078B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8351C57C1C8F0F6C007D078B /* SlideMenuModel.h */,
+				8351C57D1C8F0F6C007D078B /* SlideMenuModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		83599BFD1C8181120054E2EB = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +304,7 @@
 				83D5F3391C81EFD70071B958 /* Splash */,
 				83F776C21C84A8EB00386F8D /* DailyList */,
 				83471A2F1C8D675000A46C17 /* StoryDetail */,
+				8351C5721C8F0DB0007D078B /* SlideMenu */,
 				83599C091C8181120054E2EB /* Supporting Files */,
 			);
 			path = ZhihuDaily;
@@ -567,13 +614,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8351C5881C8F1105007D078B /* SlideMenuViewController.m in Sources */,
 				8387FFDA1C8B24B3004CAB78 /* TopImageView.m in Sources */,
 				83D5F3361C81EFCC0071B958 /* SplashModel.m in Sources */,
 				83471A411C8D887700A46C17 /* StoryDetailModel.m in Sources */,
 				83F776DB1C84BD1200386F8D /* TopStoryModel.m in Sources */,
 				83D5F3381C81EFCC0071B958 /* SplashViewController.m in Sources */,
 				83F776C01C84340800386F8D /* ApiRequest.m in Sources */,
+				8351C57E1C8F0F6C007D078B /* SlideMenuModel.m in Sources */,
 				831264F71C86CC0700D48BEF /* BeforeStoriesModel.m in Sources */,
+				8351C5851C8F0FF2007D078B /* SlideMenuView.m in Sources */,
 				836505231C8C65E8003F9949 /* NavigationView.m in Sources */,
 				83F776C51C84AA8900386F8D /* DailyTableViewController.m in Sources */,
 				83471A2E1C8D4DAA00A46C17 /* MenuButton.m in Sources */,
