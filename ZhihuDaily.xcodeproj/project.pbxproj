@@ -30,6 +30,8 @@
 		836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836561531C8A9729000A14F7 /* ImageScrollView.m */; };
 		8387FFDA1C8B24B3004CAB78 /* TopImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387FFD91C8B24B3004CAB78 /* TopImageView.m */; };
 		83A0676B1C8FC86600C89FDF /* SlideModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0676A1C8FC86600C89FDF /* SlideModelCellModel.m */; };
+		83A067711C8FD68A00C89FDF /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067701C8FD68A00C89FDF /* HomeCell.m */; };
+		83A067741C8FD69E00C89FDF /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067731C8FD69E00C89FDF /* ThemeCell.m */; };
 		83D2191A1C857CA800EA76E8 /* ImageStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D219191C857CA800EA76E8 /* ImageStoryCell.m */; };
 		83D5F3361C81EFCC0071B958 /* SplashModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D5F3311C81EFCC0071B958 /* SplashModel.m */; };
 		83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D5F3331C81EFCC0071B958 /* SplashView.m */; };
@@ -107,6 +109,10 @@
 		8387FFD91C8B24B3004CAB78 /* TopImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopImageView.m; path = DailyList/TopImageView.m; sourceTree = "<group>"; };
 		83A067691C8FC86600C89FDF /* SlideModelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideModelCellModel.h; path = SlideMenu/SlideModelCellModel.h; sourceTree = "<group>"; };
 		83A0676A1C8FC86600C89FDF /* SlideModelCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideModelCellModel.m; path = SlideMenu/SlideModelCellModel.m; sourceTree = "<group>"; };
+		83A0676F1C8FD68A00C89FDF /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeCell.h; path = SlideMenu/HomeCell.h; sourceTree = "<group>"; };
+		83A067701C8FD68A00C89FDF /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCell.m; path = SlideMenu/HomeCell.m; sourceTree = "<group>"; };
+		83A067721C8FD69E00C89FDF /* ThemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeCell.h; path = SlideMenu/ThemeCell.h; sourceTree = "<group>"; };
+		83A067731C8FD69E00C89FDF /* ThemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeCell.m; path = SlideMenu/ThemeCell.m; sourceTree = "<group>"; };
 		83D219181C857CA800EA76E8 /* ImageStoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageStoryCell.h; path = DailyList/ImageStoryCell.h; sourceTree = "<group>"; };
 		83D219191C857CA800EA76E8 /* ImageStoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageStoryCell.m; path = DailyList/ImageStoryCell.m; sourceTree = "<group>"; };
 		83D5F3301C81EFCC0071B958 /* SplashModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashModel.h; path = Splash/SplashModel.h; sourceTree = "<group>"; };
@@ -258,6 +264,10 @@
 			children = (
 				8351C5831C8F0FF2007D078B /* SlideMenuView.h */,
 				8351C5841C8F0FF2007D078B /* SlideMenuView.m */,
+				83A0676F1C8FD68A00C89FDF /* HomeCell.h */,
+				83A067701C8FD68A00C89FDF /* HomeCell.m */,
+				83A067721C8FD69E00C89FDF /* ThemeCell.h */,
+				83A067731C8FD69E00C89FDF /* ThemeCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -625,8 +635,10 @@
 				83471A411C8D887700A46C17 /* StoryDetailModel.m in Sources */,
 				83F776DB1C84BD1200386F8D /* TopStoryModel.m in Sources */,
 				83D5F3381C81EFCC0071B958 /* SplashViewController.m in Sources */,
+				83A067711C8FD68A00C89FDF /* HomeCell.m in Sources */,
 				83F776C01C84340800386F8D /* ApiRequest.m in Sources */,
 				8351C57E1C8F0F6C007D078B /* SlideMenuModel.m in Sources */,
+				83A067741C8FD69E00C89FDF /* ThemeCell.m in Sources */,
 				831264F71C86CC0700D48BEF /* BeforeStoriesModel.m in Sources */,
 				8351C5851C8F0FF2007D078B /* SlideMenuView.m in Sources */,
 				836505231C8C65E8003F9949 /* NavigationView.m in Sources */,

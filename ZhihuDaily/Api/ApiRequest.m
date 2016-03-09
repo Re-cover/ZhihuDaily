@@ -13,11 +13,13 @@
 #import "LatestStoriesModel.h"
 #import "BeforeStoriesModel.h"
 #import "StoryDetailModel.h"
+#import "SlideMenuModel.h"
 
 NSString * const splashUrlString = @"https://news-at.zhihu.com/api/4/start-image/1080*1776";
 NSString * const latestStoriesUrlString = @"https://news-at.zhihu.com/api/4/news/latest";
 NSString * const beforeStoriesUrlString = @"https://news-at.zhihu.com/api/4/news/before/";
 NSString * const storyDetailUrlString = @"https://news-at.zhihu.com/api/4/news/";
+NSString * const slideMenuUrlString = @"https://news-at.zhihu.com/api/4/themes";
 
 @implementation ApiRequest
 
@@ -85,6 +87,14 @@ NSString * const storyDetailUrlString = @"https://news-at.zhihu.com/api/4/news/"
                                       }];
 }
 
+/**
+ *  获取新闻内容
+ *
+ *  @param paramter     新闻id字符串
+ *  @param successBlock 请求成功回调
+ *  @param failureBlock 请求失败回调
+ */
+
 + (void)storyDetailModelWithParameter:(id)paramter complete:(success)successBlock failure:(failure)failureBlock {
     [[AFHTTPSessionManager sharedManager] GET:[NSString stringWithFormat:@"%@%@", storyDetailUrlString, paramter]
                                    parameters:nil
@@ -96,6 +106,27 @@ NSString * const storyDetailUrlString = @"https://news-at.zhihu.com/api/4/news/"
                                           }
                                       }
                                       failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                          failureBlock(error);
+                                      }];
+}
+
+/**
+ *  获取侧滑菜单主题日报列表
+ *
+ *  @param successBlock 请求成功回调
+ *  @param failureBlock 请求失败回调
+ */
+
++ (void)slideMenuModelComplete:(success)successBlock failure:(failure)failureBlock {
+    [[AFHTTPSessionManager sharedManager] GET:slideMenuUrlString
+                                   parameters:nil
+                                     progress:nil
+                                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                          SlideMenuModel *model = [SlideMenuModel yy_modelWithDictionary:responseObject];
+                                          if (model) {
+                                              successBlock(model);
+                                          }
+                                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                           failureBlock(error);
                                       }];
 }

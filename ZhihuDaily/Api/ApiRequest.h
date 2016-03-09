@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class SplashModel;
-
 typedef void(^success)(id);
 typedef void(^failure)(NSError *error);
 
@@ -23,4 +21,5 @@ typedef void(^failure)(NSError *error);
 
 + (void)storyDetailModelWithParameter:(id)paramter complete:(success)successBlock failure:(failure)failureBlock;
 
++ (void)slideMenuModelComplete:(success)successBlock failure:(failure)failureBlock;
 @end

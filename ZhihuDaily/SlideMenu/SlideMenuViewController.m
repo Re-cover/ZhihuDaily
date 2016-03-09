@@ -7,8 +7,18 @@
 //
 
 #import "SlideMenuViewController.h"
+#import "SlideMenuModel.h"
+#import "SlideModelCellModel.h"
+#import "ApiRequest.h"
+
+#import "HomeCell.h"
+#import "ThemeCell.h"
 
 @interface SlideMenuViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) SlideMenuModel *model;
 
 @end
 
@@ -16,8 +26,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.tableView setDataSource:self];
+    [self.tableView setDelegate:self];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    [ApiRequest slideMenuModelComplete:^(SlideMenuModel *model) {
+        self.model = model;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error.localizedDescription);
+    }];
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.model.others.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString * const homeCellId = @"homeCell";
+    NSString * const themeCellId = @"themeCell";
+    if (indexPath.row == 0) {
+        HomeCell *cell = [tableView dequeueReusableCellWithIdentifier:homeCellId];
+        return cell;
+    } else {
+        ThemeCell *cell = [tableView dequeueReusableCellWithIdentifier:themeCellId];
+        [cell.titleLabel setText:[self.model.others[indexPath.row] name]];
+        return cell;
+    }
+}
+
+#pragma mark - UITableViewDelegate
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
