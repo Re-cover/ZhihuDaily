@@ -14,6 +14,8 @@
 #import "HomeCell.h"
 #import "ThemeCell.h"
 
+#import "ThemeDailyTableViewController.h"
+
 @interface SlideMenuViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -62,25 +64,33 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        [self performSegueWithIdentifier:@"toDailyListSegue" sender:self];
+        [self performSegueWithIdentifier:@"toDailyListSegue" sender:nil];
+    } else {
+        NSString *themeId = [NSString stringWithFormat:@"%ld", self.model.others[indexPath.row].themeId];
+        NSString *name = self.model.others[indexPath.row].name;
+        NSArray *senderArray = [NSArray arrayWithObjects:name, themeId, nil];
+        [self performSegueWithIdentifier:@"toThemeDailyListSegue" sender:senderArray];
     }
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSArray *senderArray = (NSArray *)sender;
+    if ([segue.identifier isEqual: @"toThemeDailyListSegue"]) {
+        UINavigationController *nav = (UINavigationController *)segue.destinationViewController;
+        if ([[nav topViewController]isKindOfClass:[ThemeDailyTableViewController class]]) {
+            ThemeDailyTableViewController *vc = (ThemeDailyTableViewController *)[nav topViewController];
+            vc.title = senderArray[0];
+            vc.themeId = senderArray[1];
+        }
+    }
 }
-*/
 
 @end

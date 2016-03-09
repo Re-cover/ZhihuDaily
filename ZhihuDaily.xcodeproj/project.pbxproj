@@ -32,6 +32,13 @@
 		83A0676B1C8FC86600C89FDF /* SlideModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0676A1C8FC86600C89FDF /* SlideModelCellModel.m */; };
 		83A067711C8FD68A00C89FDF /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067701C8FD68A00C89FDF /* HomeCell.m */; };
 		83A067741C8FD69E00C89FDF /* ThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067731C8FD69E00C89FDF /* ThemeCell.m */; };
+		83A0677B1C8FF69200C89FDF /* ThemeStoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0677A1C8FF69200C89FDF /* ThemeStoryModel.m */; };
+		83A0677E1C8FF6D800C89FDF /* ThemeEditorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0677D1C8FF6D800C89FDF /* ThemeEditorModel.m */; };
+		83A067811C8FF72000C89FDF /* ThemeStoriesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067801C8FF72000C89FDF /* ThemeStoriesModel.m */; };
+		83A067841C8FFBE200C89FDF /* ThemeDailyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067831C8FFBE200C89FDF /* ThemeDailyTableViewController.m */; };
+		83A067871C90176600C89FDF /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067861C90176600C89FDF /* ImageCell.m */; };
+		83A0678A1C90178200C89FDF /* NoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A067891C90178200C89FDF /* NoImageCell.m */; };
+		83A0678D1C90179E00C89FDF /* EditorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0678C1C90179E00C89FDF /* EditorCell.m */; };
 		83D2191A1C857CA800EA76E8 /* ImageStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D219191C857CA800EA76E8 /* ImageStoryCell.m */; };
 		83D5F3361C81EFCC0071B958 /* SplashModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D5F3311C81EFCC0071B958 /* SplashModel.m */; };
 		83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D5F3331C81EFCC0071B958 /* SplashView.m */; };
@@ -113,6 +120,20 @@
 		83A067701C8FD68A00C89FDF /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeCell.m; path = SlideMenu/HomeCell.m; sourceTree = "<group>"; };
 		83A067721C8FD69E00C89FDF /* ThemeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeCell.h; path = SlideMenu/ThemeCell.h; sourceTree = "<group>"; };
 		83A067731C8FD69E00C89FDF /* ThemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeCell.m; path = SlideMenu/ThemeCell.m; sourceTree = "<group>"; };
+		83A067791C8FF69200C89FDF /* ThemeStoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeStoryModel.h; path = ThemeDailyList/ThemeStoryModel.h; sourceTree = "<group>"; };
+		83A0677A1C8FF69200C89FDF /* ThemeStoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeStoryModel.m; path = ThemeDailyList/ThemeStoryModel.m; sourceTree = "<group>"; };
+		83A0677C1C8FF6D800C89FDF /* ThemeEditorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeEditorModel.h; path = ThemeDailyList/ThemeEditorModel.h; sourceTree = "<group>"; };
+		83A0677D1C8FF6D800C89FDF /* ThemeEditorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeEditorModel.m; path = ThemeDailyList/ThemeEditorModel.m; sourceTree = "<group>"; };
+		83A0677F1C8FF72000C89FDF /* ThemeStoriesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeStoriesModel.h; path = ThemeDailyList/ThemeStoriesModel.h; sourceTree = "<group>"; };
+		83A067801C8FF72000C89FDF /* ThemeStoriesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeStoriesModel.m; path = ThemeDailyList/ThemeStoriesModel.m; sourceTree = "<group>"; };
+		83A067821C8FFBE200C89FDF /* ThemeDailyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeDailyTableViewController.h; path = ThemeDailyList/ThemeDailyTableViewController.h; sourceTree = "<group>"; };
+		83A067831C8FFBE200C89FDF /* ThemeDailyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeDailyTableViewController.m; path = ThemeDailyList/ThemeDailyTableViewController.m; sourceTree = "<group>"; };
+		83A067851C90176600C89FDF /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCell.h; path = ThemeDailyList/ImageCell.h; sourceTree = "<group>"; };
+		83A067861C90176600C89FDF /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCell.m; path = ThemeDailyList/ImageCell.m; sourceTree = "<group>"; };
+		83A067881C90178200C89FDF /* NoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoImageCell.h; path = ThemeDailyList/NoImageCell.h; sourceTree = "<group>"; };
+		83A067891C90178200C89FDF /* NoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoImageCell.m; path = ThemeDailyList/NoImageCell.m; sourceTree = "<group>"; };
+		83A0678B1C90179E00C89FDF /* EditorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditorCell.h; path = ThemeDailyList/EditorCell.h; sourceTree = "<group>"; };
+		83A0678C1C90179E00C89FDF /* EditorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditorCell.m; path = ThemeDailyList/EditorCell.m; sourceTree = "<group>"; };
 		83D219181C857CA800EA76E8 /* ImageStoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageStoryCell.h; path = DailyList/ImageStoryCell.h; sourceTree = "<group>"; };
 		83D219191C857CA800EA76E8 /* ImageStoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageStoryCell.m; path = DailyList/ImageStoryCell.m; sourceTree = "<group>"; };
 		83D5F3301C81EFCC0071B958 /* SplashModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashModel.h; path = Splash/SplashModel.h; sourceTree = "<group>"; };
@@ -314,12 +335,13 @@
 				83599C171C8181120054E2EB /* LaunchScreen.storyboard */,
 				83599C151C8181120054E2EB /* Assets.xcassets */,
 				83599C1A1C8181120054E2EB /* Info.plist */,
-				831264F81C86D8FC00D48BEF /* Tools */,
 				83599C3D1C8181CB0054E2EB /* Api */,
+				831264F81C86D8FC00D48BEF /* Tools */,
 				83D5F3391C81EFD70071B958 /* Splash */,
+				8351C5721C8F0DB0007D078B /* SlideMenu */,
 				83F776C21C84A8EB00386F8D /* DailyList */,
 				83471A2F1C8D675000A46C17 /* StoryDetail */,
-				8351C5721C8F0DB0007D078B /* SlideMenu */,
+				83A067751C8FF01B00C89FDF /* ThemeDailyList */,
 				83599C091C8181120054E2EB /* Supporting Files */,
 			);
 			path = ZhihuDaily;
@@ -363,6 +385,51 @@
 				83F776BC1C84340800386F8D /* ApiRequest.m */,
 			);
 			name = Api;
+			sourceTree = "<group>";
+		};
+		83A067751C8FF01B00C89FDF /* ThemeDailyList */ = {
+			isa = PBXGroup;
+			children = (
+				83A067761C8FF0A700C89FDF /* Model */,
+				83A067771C8FF0B700C89FDF /* View */,
+				83A067781C8FF0C600C89FDF /* Controller */,
+			);
+			name = ThemeDailyList;
+			sourceTree = "<group>";
+		};
+		83A067761C8FF0A700C89FDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83A067791C8FF69200C89FDF /* ThemeStoryModel.h */,
+				83A0677A1C8FF69200C89FDF /* ThemeStoryModel.m */,
+				83A0677C1C8FF6D800C89FDF /* ThemeEditorModel.h */,
+				83A0677D1C8FF6D800C89FDF /* ThemeEditorModel.m */,
+				83A0677F1C8FF72000C89FDF /* ThemeStoriesModel.h */,
+				83A067801C8FF72000C89FDF /* ThemeStoriesModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83A067771C8FF0B700C89FDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83A0678B1C90179E00C89FDF /* EditorCell.h */,
+				83A0678C1C90179E00C89FDF /* EditorCell.m */,
+				83A067851C90176600C89FDF /* ImageCell.h */,
+				83A067861C90176600C89FDF /* ImageCell.m */,
+				83A067881C90178200C89FDF /* NoImageCell.h */,
+				83A067891C90178200C89FDF /* NoImageCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83A067781C8FF0C600C89FDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83A067821C8FFBE200C89FDF /* ThemeDailyTableViewController.h */,
+				83A067831C8FFBE200C89FDF /* ThemeDailyTableViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		83D5F3391C81EFD70071B958 /* Splash */ = {
@@ -629,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A0677B1C8FF69200C89FDF /* ThemeStoryModel.m in Sources */,
 				8351C5881C8F1105007D078B /* SlideMenuViewController.m in Sources */,
 				8387FFDA1C8B24B3004CAB78 /* TopImageView.m in Sources */,
 				83D5F3361C81EFCC0071B958 /* SplashModel.m in Sources */,
@@ -641,21 +709,27 @@
 				83A067741C8FD69E00C89FDF /* ThemeCell.m in Sources */,
 				831264F71C86CC0700D48BEF /* BeforeStoriesModel.m in Sources */,
 				8351C5851C8F0FF2007D078B /* SlideMenuView.m in Sources */,
+				83A067841C8FFBE200C89FDF /* ThemeDailyTableViewController.m in Sources */,
 				836505231C8C65E8003F9949 /* NavigationView.m in Sources */,
 				83F776C51C84AA8900386F8D /* DailyTableViewController.m in Sources */,
+				83A0678A1C90178200C89FDF /* NoImageCell.m in Sources */,
 				83471A2E1C8D4DAA00A46C17 /* MenuButton.m in Sources */,
+				83A067811C8FF72000C89FDF /* ThemeStoriesModel.m in Sources */,
 				836505261C8C9424003F9949 /* DateHeaderView.m in Sources */,
 				83F776C11C84340800386F8D /* NetworkClient.m in Sources */,
 				83F776BF1C84340800386F8D /* AFHTTPSessionManager+SharedManager.m in Sources */,
+				83A0678D1C90179E00C89FDF /* EditorCell.m in Sources */,
 				83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */,
 				836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */,
 				83F776D51C84BCAB00386F8D /* StoryModel.m in Sources */,
 				83A0676B1C8FC86600C89FDF /* SlideModelCellModel.m in Sources */,
 				83471A381C8D6F3B00A46C17 /* StoryDetailViewController.m in Sources */,
+				83A0677E1C8FF6D800C89FDF /* ThemeEditorModel.m in Sources */,
 				83471A3E1C8D836F00A46C17 /* StoryDetailWebView.m in Sources */,
 				831264FB1C86D9D400D48BEF /* DateConverter.m in Sources */,
 				83D2191A1C857CA800EA76E8 /* ImageStoryCell.m in Sources */,
 				83F776DE1C84CB3E00386F8D /* LatestStoriesModel.m in Sources */,
+				83A067871C90176600C89FDF /* ImageCell.m in Sources */,
 				83599C0E1C8181120054E2EB /* AppDelegate.m in Sources */,
 				83599C0B1C8181120054E2EB /* main.m in Sources */,
 				83471A441C8D8E3000A46C17 /* SectionModel.m in Sources */,

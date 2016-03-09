@@ -14,12 +14,14 @@
 #import "BeforeStoriesModel.h"
 #import "StoryDetailModel.h"
 #import "SlideMenuModel.h"
+#import "ThemeStoriesModel.h"
 
 NSString * const splashUrlString = @"https://news-at.zhihu.com/api/4/start-image/1080*1776";
 NSString * const latestStoriesUrlString = @"https://news-at.zhihu.com/api/4/news/latest";
 NSString * const beforeStoriesUrlString = @"https://news-at.zhihu.com/api/4/news/before/";
 NSString * const storyDetailUrlString = @"https://news-at.zhihu.com/api/4/news/";
 NSString * const slideMenuUrlString = @"https://news-at.zhihu.com/api/4/themes";
+NSString * const themeStoriesUrlString = @"https://news-at.zhihu.com/api/4/theme/";
 
 @implementation ApiRequest
 
@@ -111,7 +113,7 @@ NSString * const slideMenuUrlString = @"https://news-at.zhihu.com/api/4/themes";
 }
 
 /**
- *  获取侧滑菜单主题日报列表
+ *  获取侧滑菜单主题日报分类列表
  *
  *  @param successBlock 请求成功回调
  *  @param failureBlock 请求失败回调
@@ -131,5 +133,25 @@ NSString * const slideMenuUrlString = @"https://news-at.zhihu.com/api/4/themes";
                                       }];
 }
 
+/**
+ *  获取主题日报列表
+ *
+ *  @param paramter     主题日报id字符串
+ *  @param successBlock 请求成功回调
+ *  @param failureBlock 请求失败回调
+ */
 
++ (void)themeStoriesModelWithParameter:(id)paramter complete:(success)successBlock failure:(failure)failureBlock {
+    [[AFHTTPSessionManager sharedManager] GET:[NSString stringWithFormat:@"%@%@", themeStoriesUrlString, paramter]
+                                   parameters:nil
+                                     progress:nil
+                                      success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                          ThemeStoriesModel *model = [ThemeStoriesModel yy_modelWithDictionary:responseObject];
+                                          if (model) {
+                                              successBlock(model);
+                                          }
+                                      } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                          failureBlock(error);
+                                      }];
+}
 @end

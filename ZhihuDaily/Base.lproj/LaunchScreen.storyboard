@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default" width="320" height="568"/>
+        <image name="Default" width="320" height="480"/>
     </resources>
 </document>
