@@ -23,19 +23,26 @@
     if (self) {
         [self setSelectionStyle:UITableViewCellSelectionStyleNone];
         @weakify(self);
-        [self addSubview:self.storyTitleLabel];
-        [self.storyTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(10, 15, 10, 100));
-        }];
-        
+
         [self addSubview:self.storyImageView];
         [self.storyImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(weak_self).with.insets(UIEdgeInsetsMake(15, 285, 15, 15));
+            make.size.mas_equalTo(CGSizeMake(80, 60));
+            make.right.equalTo(weak_self).with.offset(-15);
+            make.centerY.equalTo(weak_self);
+        }];
+        
+        [self addSubview:self.storyTitleLabel];
+        [self.storyTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(weak_self);
+            make.left.equalTo(weak_self).with.offset(15);
+            make.right.equalTo(weak_self.storyImageView.mas_left).with.offset(-15);
         }];
         
         [self addSubview:self.multiPicImageView];
         [self.multiPicImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(weak_self.storyImageView).with.insets(UIEdgeInsetsMake(45, 50, 0, 0));
+            make.size.mas_equalTo(CGSizeMake(23, 10));
+            make.right.equalTo(weak_self.storyImageView);
+            make.bottom.equalTo(weak_self.storyImageView);
         }];
     }
     return self;

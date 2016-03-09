@@ -51,18 +51,21 @@
 }
 
 - (void)layoutPageSubviews {
+    @weakify(self);
     [self.splashView.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(weak_self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     [self.splashView.logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(400, 0, 0, 0));
+        make.left.equalTo(weak_self.view);
+        make.right.equalTo(weak_self.view);
+        make.bottom.equalTo(weak_self.view).with.offset(20);
+        make.height.mas_equalTo(@300);
     }];
     [self.splashView.copyrightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        //make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(20);
-        make.height.equalTo(@80);
+        make.left.equalTo(weak_self.view);
+        make.right.equalTo(weak_self.view);
+        make.bottom.equalTo(weak_self.view.mas_bottom).with.offset(30);
+        make.height.mas_equalTo(@40);
     }];
 }
 
