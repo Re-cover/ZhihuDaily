@@ -582,7 +582,6 @@
 				TargetAttributes = {
 					83599C051C8181120054E2EB = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = BSX56YTBJ6;
 					};
 					83599C1E1C8181120054E2EB = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -872,6 +871,7 @@
 			baseConfigurationReference = 01F833E51A57CF55310FED17 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (3ET2Y7A6B7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZhihuDaily/ZhihuDaily.pch;
 				INFOPLIST_FILE = ZhihuDaily/Info.plist;
@@ -887,6 +887,7 @@
 			baseConfigurationReference = BA36B153378AACC1C1174823 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (3ET2Y7A6B7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ZhihuDaily/ZhihuDaily.pch;
 				INFOPLIST_FILE = ZhihuDaily/Info.plist;
