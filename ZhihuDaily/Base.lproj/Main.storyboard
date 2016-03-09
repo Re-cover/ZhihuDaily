@@ -259,7 +259,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="tOU-qc-vtJ" firstAttribute="leading" secondItem="a2Z-pf-x99" secondAttribute="trailing" constant="25" id="ECE-6l-U11"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rxi-Za-bc7" secondAttribute="trailing" constant="80" id="Epc-dv-6Y6"/>
@@ -305,7 +304,6 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="lmL-XM-ps8" firstAttribute="centerY" secondItem="icJ-9a-1g9" secondAttribute="centerY" id="lAH-Is-L15"/>
                                                 <constraint firstAttribute="trailing" secondItem="LKx-dD-XP6" secondAttribute="trailing" constant="80" id="svA-Lo-brt"/>
@@ -313,6 +311,7 @@
                                                 <constraint firstItem="lmL-XM-ps8" firstAttribute="leading" secondItem="icJ-9a-1g9" secondAttribute="leading" constant="20" id="zE3-nT-sOn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="lmL-XM-ps8" id="u98-Iv-LKY"/>
                                         </connections>
@@ -337,6 +336,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="Dpq-Wk-Ayl" id="YSb-4M-akS"/>
+                        <segue destination="YLd-Y6-NVA" kind="show" identifier="toDailyListSegue" customClass="SWRevealViewControllerSeguePushController" id="2mc-b3-JHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4tT-6Q-KzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -424,4 +424,7 @@
         <image name="Menu_Icon_Message" width="20" height="20"/>
         <image name="Menu_Icon_Setting" width="20" height="20"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="2mc-b3-JHu"/>
+    </inferredMetricsTieBreakers>
 </document>

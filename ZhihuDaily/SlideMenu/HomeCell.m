@@ -16,8 +16,13 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+//    if (selected) {
+//        [self setBackgroundColor:[UIColor blackColor]];
+//        [self.titleLabel setTextColor:[UIColor whiteColor]];
+//    } else {
+//        [self setBackgroundColor:[UIColor viewFlipsideBackgroundColor]];
+//        [self.titleLabel setTextColor:[UIColor lightGrayColor]];
+//    }
 }
 
 @end

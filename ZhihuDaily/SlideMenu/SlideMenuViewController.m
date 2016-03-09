@@ -60,6 +60,11 @@
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"toDailyListSegue" sender:self];
+    }
+}
 
 
 
