@@ -94,10 +94,10 @@
     SWRevealViewController *revealVC = self.revealViewController;
     [self.view addGestureRecognizer:revealVC.tapGestureRecognizer];
     [self.view addGestureRecognizer:revealVC.panGestureRecognizer];
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:23/255. green:144/255. blue:211/255. alpha:1]];
-    //[self.navigationController.navigationBar setBackgroundImage: forc:UIBarMetricsDefault];
+    //[self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:23/255. green:144/255. blue:211/255. alpha:1]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Dark_News_Arrow"] style:UIBarButtonItemStylePlain target:revealVC action:@selector(revealToggle:)];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Dark_Management_Add"] style:UIBarButtonItemStylePlain target:nil action:nil];
