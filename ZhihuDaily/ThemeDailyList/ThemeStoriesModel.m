@@ -13,7 +13,7 @@
 @implementation ThemeStoriesModel
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
-    return @{@"description" : @"themeDescription"};
+    return @{@"themeDescription" : @"description"};
 }
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {

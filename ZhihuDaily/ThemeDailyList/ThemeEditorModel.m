@@ -11,7 +11,7 @@
 @implementation ThemeEditorModel
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
-    return @{@"id" : @"editorId"};
+    return @{@"editorId" : @"id"};
 }
 
 @end

@@ -11,7 +11,7 @@
 @implementation ThemeStoryModel
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
-    return @{@"id" : @"themeStoryId"};
+    return @{@"themeStoryId" : @"id"};
 }
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass {

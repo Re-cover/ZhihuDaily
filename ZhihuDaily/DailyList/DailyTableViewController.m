@@ -183,9 +183,6 @@
 }
 
 # pragma mark - Event Response
-- (void)menuButtonClicked {
-    NSLog(@"被点击了");
-}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     StoryDetailViewController *vc = segue.destinationViewController;

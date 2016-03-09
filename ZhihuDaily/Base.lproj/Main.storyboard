@@ -361,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1F-fP-Lwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.5" y="404.5"/>
+            <point key="canvasLocation" x="1000.5" y="856.5"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="hJa-fT-cw7">
@@ -401,7 +401,7 @@
         <scene sceneID="HiY-JY-vhK">
             <objects>
                 <tableViewController id="rP6-0m-Hm9" customClass="ThemeDailyTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KoX-2n-lEz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KoX-2n-lEz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -668,6 +668,9 @@
                     <navigationItem key="navigationItem" title="主题日报" id="8mf-tu-pKf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="SYG-tM-TDr" kind="show" identifier="toThemeStoryDetailSegue" id="vMP-kL-Fgf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3f-0f-vV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -723,5 +726,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2mc-b3-JHu"/>
+        <segue reference="vMP-kL-Fgf"/>
     </inferredMetricsTieBreakers>
 </document>

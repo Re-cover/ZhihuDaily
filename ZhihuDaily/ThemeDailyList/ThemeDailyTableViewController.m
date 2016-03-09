@@ -15,6 +15,7 @@
 #import "EditorCell.h"
 #import "ImageCell.h"
 #import "NoImageCell.h"
+#import "StoryDetailViewController.h"
 
 #import <YYWebImage.h>
 #import <SVPullToRefresh.h>
@@ -70,7 +71,20 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.row == 0 ? 40 : 90;
+    return indexPath.section == 0 ? 40 : 90;
+}
+
+#pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        NSString *themeStoryId = [NSString stringWithFormat:@"%ld", [self themeStoryModelWithIndexPath:indexPath].themeStoryId];
+        [self performSegueWithIdentifier:@"toThemeStoryDetailSegue" sender:themeStoryId];
+    }
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    StoryDetailViewController *vc = segue.destinationViewController;
+    vc.storyId = sender;
 }
 
 #pragma mark - Private Methods

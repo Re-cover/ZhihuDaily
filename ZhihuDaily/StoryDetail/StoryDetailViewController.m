@@ -45,7 +45,7 @@
     [self.scrollView addSubview:self.webView];
     
     self.topImageView = [[TopImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
-    [self.scrollView addSubview: self.topImageView];
+    
     
     //[self layoutPageSubviews];
 }
@@ -62,6 +62,9 @@
         weak_self.model = model;
         weak_self.topImageView.storyDetailModel = model;
         weak_self.webView.model = model;
+        if (model.image) {
+            [self.scrollView addSubview: self.topImageView];
+        }
     } failure:^(NSError *error) {
         NSLog(@"%@", error.localizedDescription);
     }];
