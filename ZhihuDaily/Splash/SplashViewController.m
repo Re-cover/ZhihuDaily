@@ -69,10 +69,6 @@
     }];
 }
 
-//- (void)viewDidLayoutSubviews {
-//    [super viewDidLayoutSubviews]
-//}
-
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
