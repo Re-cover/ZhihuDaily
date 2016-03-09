@@ -25,7 +25,7 @@
 
 #import <YYWebImage.h>
 #import <Masonry.h>
-
+#import <SWRevealViewController.h>
 #import <SVPullToRefresh.h>
 
 
@@ -62,10 +62,10 @@
     [self.view addSubview:self.navView];
     
     self.menuButton = [[MenuButton alloc] init];
-    [self.menuButton addTarget:self action:@selector(menuButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.menuButton];
     
     [self layoutPageSubviews];
+    [self initSlideMenu];
     
     @weakify(self);
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -193,6 +193,16 @@
 }
 
 # pragma mark - Private Methods
+
+- (void)initSlideMenu {
+    SWRevealViewController *revealController = self.revealViewController;
+    revealController.rearViewRevealWidth = 210;
+    revealController.bounceBackOnOverdraw = NO;
+    revealController.bounceBackOnLeftOverdraw = NO;
+    [self.view addGestureRecognizer:revealController.tapGestureRecognizer];
+    [self.view addGestureRecognizer:revealController.panGestureRecognizer];
+    [self.menuButton addTarget:revealController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

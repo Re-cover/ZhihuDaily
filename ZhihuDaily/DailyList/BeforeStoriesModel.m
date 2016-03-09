@@ -11,10 +11,6 @@
 
 @implementation BeforeStoriesModel
 
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"stories" : @"stories"};
-}
-
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"stories" : [StoryModel class]};
 }

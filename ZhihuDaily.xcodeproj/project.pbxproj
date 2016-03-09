@@ -29,6 +29,7 @@
 		836505261C8C9424003F9949 /* DateHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836505251C8C9424003F9949 /* DateHeaderView.m */; };
 		836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 836561531C8A9729000A14F7 /* ImageScrollView.m */; };
 		8387FFDA1C8B24B3004CAB78 /* TopImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387FFD91C8B24B3004CAB78 /* TopImageView.m */; };
+		83A0676B1C8FC86600C89FDF /* SlideModelCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A0676A1C8FC86600C89FDF /* SlideModelCellModel.m */; };
 		83D2191A1C857CA800EA76E8 /* ImageStoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D219191C857CA800EA76E8 /* ImageStoryCell.m */; };
 		83D5F3361C81EFCC0071B958 /* SplashModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D5F3311C81EFCC0071B958 /* SplashModel.m */; };
 		83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D5F3331C81EFCC0071B958 /* SplashView.m */; };
@@ -104,6 +105,8 @@
 		836561531C8A9729000A14F7 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageScrollView.m; path = DailyList/ImageScrollView.m; sourceTree = "<group>"; };
 		8387FFD81C8B24B3004CAB78 /* TopImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopImageView.h; path = DailyList/TopImageView.h; sourceTree = "<group>"; };
 		8387FFD91C8B24B3004CAB78 /* TopImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopImageView.m; path = DailyList/TopImageView.m; sourceTree = "<group>"; };
+		83A067691C8FC86600C89FDF /* SlideModelCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideModelCellModel.h; path = SlideMenu/SlideModelCellModel.h; sourceTree = "<group>"; };
+		83A0676A1C8FC86600C89FDF /* SlideModelCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideModelCellModel.m; path = SlideMenu/SlideModelCellModel.m; sourceTree = "<group>"; };
 		83D219181C857CA800EA76E8 /* ImageStoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageStoryCell.h; path = DailyList/ImageStoryCell.h; sourceTree = "<group>"; };
 		83D219191C857CA800EA76E8 /* ImageStoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageStoryCell.m; path = DailyList/ImageStoryCell.m; sourceTree = "<group>"; };
 		83D5F3301C81EFCC0071B958 /* SplashModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashModel.h; path = Splash/SplashModel.h; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 		8351C57B1C8F0F23007D078B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				83A067691C8FC86600C89FDF /* SlideModelCellModel.h */,
+				83A0676A1C8FC86600C89FDF /* SlideModelCellModel.m */,
 				8351C57C1C8F0F6C007D078B /* SlideMenuModel.h */,
 				8351C57D1C8F0F6C007D078B /* SlideMenuModel.m */,
 			);
@@ -633,6 +638,7 @@
 				83D5F3371C81EFCC0071B958 /* SplashView.m in Sources */,
 				836561541C8A9729000A14F7 /* ImageScrollView.m in Sources */,
 				83F776D51C84BCAB00386F8D /* StoryModel.m in Sources */,
+				83A0676B1C8FC86600C89FDF /* SlideModelCellModel.m in Sources */,
 				83471A381C8D6F3B00A46C17 /* StoryDetailViewController.m in Sources */,
 				83471A3E1C8D836F00A46C17 /* StoryDetailWebView.m in Sources */,
 				831264FB1C86D9D400D48BEF /* DateConverter.m in Sources */,

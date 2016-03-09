@@ -13,8 +13,7 @@
 @implementation LatestStoriesModel
 
 + (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"stories" : @"stories",
-             @"topStories" : @"top_stories"};
+    return @{@"topStories" : @"top_stories"};
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
