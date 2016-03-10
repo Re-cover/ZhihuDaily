@@ -14,8 +14,9 @@
 
 @implementation ImageScrollView
 
-- (instancetype)init {
-    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+- (instancetype)initWithFrame:(CGRect)frame {
+    //self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
+    self = [super initWithFrame:frame];
     if (self) {
         @weakify(self);
         [self addSubview:self.imageScrollView];
@@ -47,7 +48,6 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    
     CGFloat x = self.pageControl.currentPage * kScreenWidth;
     [self.imageScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
     [self addTimer];

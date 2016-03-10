@@ -139,7 +139,7 @@
                                         <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="cd4-xu-BTG" firstAttribute="leading" secondItem="PgC-t0-iYz" secondAttribute="leading" constant="20" id="4nc-Sn-eka"/>
                                     <constraint firstItem="OKM-wp-yvf" firstAttribute="leading" secondItem="ogX-yn-3Ak" secondAttribute="trailing" constant="40" id="6h3-ho-9lJ"/>
@@ -210,7 +210,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="DNk-v7-m24" firstAttribute="centerY" secondItem="rhR-zc-QiV" secondAttribute="centerY" id="87I-Od-FvF"/>
                                     <constraint firstItem="zgH-Jb-grl" firstAttribute="leading" secondItem="3lT-5g-HRq" secondAttribute="trailing" constant="5" id="SeK-5v-SXv"/>
@@ -225,7 +225,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dpq-Wk-Ayl">
                                 <rect key="frame" x="0.0" y="125" width="375" height="482"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeCell" id="xn1-39-Sfd" customClass="HomeCell">
                                         <rect key="frame" x="0.0" y="1" width="375" height="44"/>
@@ -268,7 +268,7 @@
                                                 <constraint firstItem="a2Z-pf-x99" firstAttribute="centerY" secondItem="6Yd-PL-Wta" secondAttribute="centerY" id="nNY-rB-TqI"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="tOU-qc-vtJ" id="37x-mY-1Yc"/>
                                         </connections>
@@ -311,7 +311,7 @@
                                                 <constraint firstItem="lmL-XM-ps8" firstAttribute="leading" secondItem="icJ-9a-1g9" secondAttribute="leading" constant="20" id="zE3-nT-sOn"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="lmL-XM-ps8" id="u98-Iv-LKY"/>
                                         </connections>
@@ -605,7 +605,7 @@
                                                 <constraint firstAttribute="height" constant="60" id="b7a-dp-5Ld"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -635,7 +635,7 @@
                                                 <constraint firstAttribute="height" constant="60" id="pnH-Bx-6Fe"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

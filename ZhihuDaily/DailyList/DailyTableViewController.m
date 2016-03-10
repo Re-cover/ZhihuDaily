@@ -55,7 +55,7 @@
     [self.tableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 15)];
     [self.tableView setSeparatorColor:[UIColor lightGrayColor]];
     
-    self.imageScrollView = [[ImageScrollView alloc] init];
+    self.imageScrollView = [[ImageScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     [self.tableView setTableHeaderView:self.imageScrollView];
     
     self.navView = [[NavigationView alloc] init];
