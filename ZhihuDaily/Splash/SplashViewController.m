@@ -64,8 +64,8 @@
     [self.splashView.copyrightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weak_self.view);
         make.right.equalTo(weak_self.view);
-        make.bottom.equalTo(weak_self.view.mas_bottom).with.offset(30);
-        make.height.mas_equalTo(@40);
+        make.bottom.equalTo(weak_self.view.mas_bottom).with.offset(-15);
+        make.height.mas_equalTo(@20);
     }];
 }
 

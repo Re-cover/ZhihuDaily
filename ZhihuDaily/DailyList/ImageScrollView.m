@@ -15,7 +15,6 @@
 @implementation ImageScrollView
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    //self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 200)];
     self = [super initWithFrame:frame];
     if (self) {
         @weakify(self);
