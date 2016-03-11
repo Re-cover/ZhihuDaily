@@ -387,7 +387,7 @@
             </objects>
             <point key="canvasLocation" x="396.5" y="404.5"/>
         </scene>
-        <!--主题日报-->
+        <!--Root View Controller-->
         <scene sceneID="HiY-JY-vhK">
             <objects>
                 <tableViewController id="rP6-0m-Hm9" customClass="ThemeDailyTableViewController" sceneMemberID="viewController">
@@ -655,7 +655,7 @@
                             <outlet property="delegate" destination="rP6-0m-Hm9" id="uzK-cB-Whi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="主题日报" id="8mf-tu-pKf"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="8mf-tu-pKf"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -715,7 +715,7 @@
         <image name="Menu_Icon_Setting" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Csb-z0-AuT"/>
         <segue reference="2mc-b3-JHu"/>
-        <segue reference="vMP-kL-Fgf"/>
     </inferredMetricsTieBreakers>
 </document>
