@@ -56,6 +56,7 @@
         [self.storyTitleLabel setTextColor:[UIColor blackColor]];
         [self.storyTitleLabel setFont:[UIFont fontWithName:@"PingFang SC" size:15]];
         [self.storyTitleLabel setNumberOfLines:3];
+        [self.storyTitleLabel setBackgroundColor:[UIColor whiteColor]];   //防止图层混合，提升性能
     }
     return _storyTitleLabel;
 }

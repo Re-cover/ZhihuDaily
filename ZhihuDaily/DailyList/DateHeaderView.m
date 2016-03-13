@@ -33,6 +33,7 @@
         [self.dateLabel setTextColor:[UIColor whiteColor]];
         [self.dateLabel setFont:[UIFont fontWithName:@"PingFang SC" size:18]];
         [self.dateLabel setNumberOfLines:1];
+        [self.dateLabel setBackgroundColor:[UIColor colorWithRed:23/255. green:144/255. blue:211/255. alpha:1]];  //防止图层混合，优化性能
     }
     return _dateLabel;
 }
